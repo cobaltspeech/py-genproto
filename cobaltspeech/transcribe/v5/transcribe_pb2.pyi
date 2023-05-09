@@ -175,12 +175,14 @@ class Model(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., attributes: _Optional[_Union[ModelAttributes, _Mapping]] = ...) -> None: ...
 
 class ModelAttributes(_message.Message):
-    __slots__ = ["sample_rate", "context_info"]
+    __slots__ = ["sample_rate", "context_info", "supported_sample_rates"]
     SAMPLE_RATE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_INFO_FIELD_NUMBER: _ClassVar[int]
+    SUPPORTED_SAMPLE_RATES_FIELD_NUMBER: _ClassVar[int]
     sample_rate: int
     context_info: ContextInfo
-    def __init__(self, sample_rate: _Optional[int] = ..., context_info: _Optional[_Union[ContextInfo, _Mapping]] = ...) -> None: ...
+    supported_sample_rates: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, sample_rate: _Optional[int] = ..., context_info: _Optional[_Union[ContextInfo, _Mapping]] = ..., supported_sample_rates: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ContextInfo(_message.Message):
     __slots__ = ["supports_context", "allowed_context_tokens"]
