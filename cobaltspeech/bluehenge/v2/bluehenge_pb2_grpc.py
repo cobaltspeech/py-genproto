@@ -86,6 +86,11 @@ class BluehengeServiceStub(object):
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListTreesRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListTreesResponse.FromString,
                 )
+        self.ListEntities = channel.unary_unary(
+                '/cobaltspeech.bluehenge.v2.BluehengeService/ListEntities',
+                request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListEntitiesRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListEntitiesResponse.FromString,
+                )
         self.GetProcedure = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v2.BluehengeService/GetProcedure',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetProcedureRequest.SerializeToString,
@@ -100,6 +105,11 @@ class BluehengeServiceStub(object):
                 '/cobaltspeech.bluehenge.v2.BluehengeService/SaveNote',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.SaveNoteRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.SaveNoteResponse.FromString,
+                )
+        self.GetExtractionRelationship = channel.unary_unary(
+                '/cobaltspeech.bluehenge.v2.BluehengeService/GetExtractionRelationship',
+                request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipResponse.FromString,
                 )
         self.GetEntityImageData = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v2.BluehengeService/GetEntityImageData',
@@ -241,6 +251,15 @@ class BluehengeServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListEntities(self, request, context):
+        """Returns a list of all entities.
+        This list contains every entity in the knowledge graph and can
+        be used for fuzzy matching or any other time you need everything.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetProcedure(self, request, context):
         """Gets a single procedure identified by id.
         The response returns everything you should need to be able to display the Procedure and it's Steps and Tasks to the user.
@@ -263,6 +282,16 @@ class BluehengeServiceServicer(object):
 
     def SaveNote(self, request, context):
         """Saves a note in a specific step during a procedure.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetExtractionRelationship(self, request, context):
+        """Gets the data related with an entity extraction triple for a
+        specific entity-relation pair, e.g. entity:"sky", relation:"has color"
+        Extractions contain Subject-Relation-Object sets. For example,
+        entity:"sky", relation:"has color", object:"blue".
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -329,6 +358,11 @@ def add_BluehengeServiceServicer_to_server(servicer, server):
                     request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListTreesRequest.FromString,
                     response_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListTreesResponse.SerializeToString,
             ),
+            'ListEntities': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListEntities,
+                    request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListEntitiesRequest.FromString,
+                    response_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListEntitiesResponse.SerializeToString,
+            ),
             'GetProcedure': grpc.unary_unary_rpc_method_handler(
                     servicer.GetProcedure,
                     request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetProcedureRequest.FromString,
@@ -343,6 +377,11 @@ def add_BluehengeServiceServicer_to_server(servicer, server):
                     servicer.SaveNote,
                     request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.SaveNoteRequest.FromString,
                     response_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.SaveNoteResponse.SerializeToString,
+            ),
+            'GetExtractionRelationship': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetExtractionRelationship,
+                    request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipRequest.FromString,
+                    response_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipResponse.SerializeToString,
             ),
             'GetEntityImageData': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEntityImageData,
@@ -552,6 +591,23 @@ class BluehengeService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListEntities(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v2.BluehengeService/ListEntities',
+            cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListEntitiesRequest.SerializeToString,
+            cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.ListEntitiesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetProcedure(request,
             target,
             options=(),
@@ -599,6 +655,23 @@ class BluehengeService(object):
         return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v2.BluehengeService/SaveNote',
             cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.SaveNoteRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.SaveNoteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetExtractionRelationship(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v2.BluehengeService/GetExtractionRelationship',
+            cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipRequest.SerializeToString,
+            cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

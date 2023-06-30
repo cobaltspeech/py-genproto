@@ -291,6 +291,64 @@ class SaveNoteResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListEntitiesRequest(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListEntitiesResponse(_message.Message):
+    __slots__ = ["entities"]
+    ENTITIES_FIELD_NUMBER: _ClassVar[int]
+    entities: _containers.RepeatedCompositeFieldContainer[Entity]
+    def __init__(self, entities: _Optional[_Iterable[_Union[Entity, _Mapping]]] = ...) -> None: ...
+
+class GetExtractionRelationshipRequest(_message.Message):
+    __slots__ = ["name", "relation"]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    RELATION_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    relation: str
+    def __init__(self, name: _Optional[str] = ..., relation: _Optional[str] = ...) -> None: ...
+
+class GetExtractionRelationshipResponse(_message.Message):
+    __slots__ = ["extraction"]
+    EXTRACTION_FIELD_NUMBER: _ClassVar[int]
+    extraction: Extraction
+    def __init__(self, extraction: _Optional[_Union[Extraction, _Mapping]] = ...) -> None: ...
+
+class Extraction(_message.Message):
+    __slots__ = ["id", "subject", "object", "relation"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    SUBJECT_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_FIELD_NUMBER: _ClassVar[int]
+    RELATION_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    subject: Entity
+    object: Entity
+    relation: Relation
+    def __init__(self, id: _Optional[str] = ..., subject: _Optional[_Union[Entity, _Mapping]] = ..., object: _Optional[_Union[Entity, _Mapping]] = ..., relation: _Optional[_Union[Relation, _Mapping]] = ...) -> None: ...
+
+class Entity(_message.Message):
+    __slots__ = ["id", "mentions"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    MENTIONS_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    mentions: Mention
+    def __init__(self, id: _Optional[str] = ..., mentions: _Optional[_Union[Mention, _Mapping]] = ...) -> None: ...
+
+class Relation(_message.Message):
+    __slots__ = ["id", "mentions"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    MENTIONS_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    mentions: Mention
+    def __init__(self, id: _Optional[str] = ..., mentions: _Optional[_Union[Mention, _Mapping]] = ...) -> None: ...
+
+class Mention(_message.Message):
+    __slots__ = ["text"]
+    TEXT_FIELD_NUMBER: _ClassVar[int]
+    text: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, text: _Optional[_Iterable[str]] = ...) -> None: ...
+
 class GetEntityImageDataRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
