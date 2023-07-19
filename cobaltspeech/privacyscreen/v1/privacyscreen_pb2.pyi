@@ -26,6 +26,22 @@ class ListModelsResponse(_message.Message):
     models: _containers.RepeatedCompositeFieldContainer[ModelInfo]
     def __init__(self, models: _Optional[_Iterable[_Union[ModelInfo, _Mapping]]] = ...) -> None: ...
 
+class RedactTextRequest(_message.Message):
+    __slots__ = ["config", "text"]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    TEXT_FIELD_NUMBER: _ClassVar[int]
+    config: RedactionConfig
+    text: str
+    def __init__(self, config: _Optional[_Union[RedactionConfig, _Mapping]] = ..., text: _Optional[str] = ...) -> None: ...
+
+class RedactTextResponse(_message.Message):
+    __slots__ = ["text", "redacted_tokens"]
+    TEXT_FIELD_NUMBER: _ClassVar[int]
+    REDACTED_TOKENS_FIELD_NUMBER: _ClassVar[int]
+    text: str
+    redacted_tokens: _containers.RepeatedCompositeFieldContainer[RedactedToken]
+    def __init__(self, text: _Optional[str] = ..., redacted_tokens: _Optional[_Iterable[_Union[RedactedToken, _Mapping]]] = ...) -> None: ...
+
 class RedactTranscriptRequest(_message.Message):
     __slots__ = ["config", "transcript"]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
@@ -153,3 +169,17 @@ class Word(_message.Message):
     redaction_class: str
     redaction_confidence: float
     def __init__(self, text: _Optional[str] = ..., asr_confidence: _Optional[float] = ..., start_time_ms: _Optional[int] = ..., duration_ms: _Optional[int] = ..., is_redacted: bool = ..., redaction_class: _Optional[str] = ..., redaction_confidence: _Optional[float] = ...) -> None: ...
+
+class RedactedToken(_message.Message):
+    __slots__ = ["original_text", "original_offset", "original_length", "redaction_class", "redaction_confidence"]
+    ORIGINAL_TEXT_FIELD_NUMBER: _ClassVar[int]
+    ORIGINAL_OFFSET_FIELD_NUMBER: _ClassVar[int]
+    ORIGINAL_LENGTH_FIELD_NUMBER: _ClassVar[int]
+    REDACTION_CLASS_FIELD_NUMBER: _ClassVar[int]
+    REDACTION_CONFIDENCE_FIELD_NUMBER: _ClassVar[int]
+    original_text: str
+    original_offset: int
+    original_length: int
+    redaction_class: str
+    redaction_confidence: float
+    def __init__(self, original_text: _Optional[str] = ..., original_offset: _Optional[int] = ..., original_length: _Optional[int] = ..., redaction_class: _Optional[str] = ..., redaction_confidence: _Optional[float] = ...) -> None: ...

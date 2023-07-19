@@ -25,6 +25,11 @@ class PrivacyScreenServiceStub(object):
                 request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsResponse.FromString,
                 )
+        self.RedactText = channel.unary_unary(
+                '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactText',
+                request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextResponse.FromString,
+                )
         self.RedactTranscript = channel.unary_unary(
                 '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactTranscript',
                 request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTranscriptRequest.SerializeToString,
@@ -55,6 +60,14 @@ class PrivacyScreenServiceServicer(object):
 
     def ListModels(self, request, context):
         """ListModels returns information about the models the server can access.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RedactText(self, request, context):
+        """Redact text using a redaction engine that is configured with the provided
+        redaction configuration.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -97,6 +110,11 @@ def add_PrivacyScreenServiceServicer_to_server(servicer, server):
                     servicer.ListModels,
                     request_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsRequest.FromString,
                     response_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsResponse.SerializeToString,
+            ),
+            'RedactText': grpc.unary_unary_rpc_method_handler(
+                    servicer.RedactText,
+                    request_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextRequest.FromString,
+                    response_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextResponse.SerializeToString,
             ),
             'RedactTranscript': grpc.unary_unary_rpc_method_handler(
                     servicer.RedactTranscript,
@@ -155,6 +173,23 @@ class PrivacyScreenService(object):
         return grpc.experimental.unary_unary(request, target, '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/ListModels',
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RedactText(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactText',
+            cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextRequest.SerializeToString,
+            cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
