@@ -159,8 +159,8 @@ class IdentificationConfig(_message.Message):
 class Voiceprint(_message.Message):
     __slots__ = ["data"]
     DATA_FIELD_NUMBER: _ClassVar[int]
-    data: bytes
-    def __init__(self, data: _Optional[bytes] = ...) -> None: ...
+    data: str
+    def __init__(self, data: _Optional[str] = ...) -> None: ...
 
 class AudioFormat(_message.Message):
     __slots__ = ["audio_format_raw", "audio_format_headered"]
