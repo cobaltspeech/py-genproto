@@ -55,6 +55,11 @@ class DiathekeServiceStub(object):
                 request_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeResponse.FromString,
                 )
+        self.StreamASRWithPartials = channel.stream_stream(
+                '/cobaltspeech.diatheke.v3.DiathekeService/StreamASRWithPartials',
+                request_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.FromString,
+                )
 
 
 class DiathekeServiceServicer(object):
@@ -149,6 +154,21 @@ class DiathekeServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def StreamASRWithPartials(self, request_iterator, context):
+        """Performs bidirectional streaming speech recognition. Receive results while
+        sending audio. Each result will either be a partial ASR result, or a final
+        result. Partial results will be sent as soon as they are ready, and all
+        results will be sent, regardless of any wakeword configuration in the
+        session. A final result will be sent exactly once, and the stream will be
+        closed then. If a session has a wakeword enabled, the final result will
+        only be emitted if the required wakeword is present. The ASRResult in the
+        final message maybe used in the UpdateSession method for further dialog
+        processing.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DiathekeServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -191,6 +211,11 @@ def add_DiathekeServiceServicer_to_server(servicer, server):
                     servicer.Transcribe,
                     request_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeRequest.FromString,
                     response_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeResponse.SerializeToString,
+            ),
+            'StreamASRWithPartials': grpc.stream_stream_rpc_method_handler(
+                    servicer.StreamASRWithPartials,
+                    request_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.FromString,
+                    response_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -336,5 +361,22 @@ class DiathekeService(object):
         return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.diatheke.v3.DiathekeService/Transcribe',
             cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeRequest.SerializeToString,
             cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StreamASRWithPartials(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.diatheke.v3.DiathekeService/StreamASRWithPartials',
+            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.SerializeToString,
+            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

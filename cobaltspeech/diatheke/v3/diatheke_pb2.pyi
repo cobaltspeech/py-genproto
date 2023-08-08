@@ -234,6 +234,22 @@ class StreamASRResponse(_message.Message):
     asr_result: ASRResult
     def __init__(self, asr_result: _Optional[_Union[ASRResult, _Mapping]] = ...) -> None: ...
 
+class StreamASRWithPartialsRequest(_message.Message):
+    __slots__ = ["token", "audio"]
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    AUDIO_FIELD_NUMBER: _ClassVar[int]
+    token: TokenData
+    audio: bytes
+    def __init__(self, token: _Optional[_Union[TokenData, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
+
+class StreamASRWithPartialsResponse(_message.Message):
+    __slots__ = ["partial_result", "asr_result"]
+    PARTIAL_RESULT_FIELD_NUMBER: _ClassVar[int]
+    ASR_RESULT_FIELD_NUMBER: _ClassVar[int]
+    partial_result: _cubic_pb2.RecognitionResult
+    asr_result: ASRResult
+    def __init__(self, partial_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ..., asr_result: _Optional[_Union[ASRResult, _Mapping]] = ...) -> None: ...
+
 class ASRResult(_message.Message):
     __slots__ = ["text", "confidence", "timed_out", "cubic_result"]
     TEXT_FIELD_NUMBER: _ClassVar[int]
