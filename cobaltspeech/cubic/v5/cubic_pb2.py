@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cobaltspeech.cubic.v5.cubic_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\031com.cobaltspeech.cubic.v5B\nCubicProtoP\001ZAgithub.com/cobaltspeech/go-genproto/cobaltspeech/cubic/v5;cubicv5\242\002\003CCX\252\002\025Cobaltspeech.Cubic.V5\312\002\025Cobaltspeech\\Cubic\\V5\342\002!Cobaltspeech\\Cubic\\V5\\GPBMetadata\352\002\027Cobaltspeech::Cubic::V5'
   _CONFUSIONNETWORKARCFEATURES_CONFIDENCEENTRY._options = None

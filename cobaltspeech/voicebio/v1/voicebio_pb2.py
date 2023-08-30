@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cobaltspeech.voicebio.v1.voicebio_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\034com.cobaltspeech.voicebio.v1B\rVoicebioProtoP\001ZGgithub.com/cobaltspeech/go-genproto/cobaltspeech/voicebio/v1;voicebiov1\242\002\003CVX\252\002\030Cobaltspeech.Voicebio.V1\312\002\030Cobaltspeech\\Voicebio\\V1\342\002$Cobaltspeech\\Voicebio\\V1\\GPBMetadata\352\002\032Cobaltspeech::Voicebio::V1'
   _VOICEBIOSERVICE.methods_by_name['Version']._options = None

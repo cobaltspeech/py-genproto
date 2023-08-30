@@ -19,7 +19,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cobaltspeech.chosun.v2.chosun_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032com.cobaltspeech.chosun.v2B\013ChosunProtoP\001ZCgithub.com/cobaltspeech/go-genproto/cobaltspeech/chosun/v2;chosunv2\242\002\003CCX\252\002\026Cobaltspeech.Chosun.V2\312\002\026Cobaltspeech\\Chosun\\V2\342\002\"Cobaltspeech\\Chosun\\V2\\GPBMetadata\352\002\030Cobaltspeech::Chosun::V2'
   _DOMAININFO_DOMAINSENTRY._options = None

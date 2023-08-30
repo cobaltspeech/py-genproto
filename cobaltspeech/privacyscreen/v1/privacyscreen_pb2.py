@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cobaltspeech.privacyscreen.v1.privacyscreen_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n!com.cobaltspeech.privacyscreen.v1B\022PrivacyscreenProtoP\001ZQgithub.com/cobaltspeech/go-genproto/cobaltspeech/privacyscreen/v1;privacyscreenv1\242\002\003CPX\252\002\035Cobaltspeech.Privacyscreen.V1\312\002\035Cobaltspeech\\Privacyscreen\\V1\342\002)Cobaltspeech\\Privacyscreen\\V1\\GPBMetadata\352\002\037Cobaltspeech::Privacyscreen::V1'
   _PRIVACYSCREENSERVICE.methods_by_name['Version']._options = None

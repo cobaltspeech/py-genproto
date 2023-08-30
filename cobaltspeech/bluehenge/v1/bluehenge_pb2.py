@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cobaltspeech.bluehenge.v1.bluehenge_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\035com.cobaltspeech.bluehenge.v1B\016BluehengeProtoP\001ZIgithub.com/cobaltspeech/go-genproto/cobaltspeech/bluehenge/v1;bluehengev1\242\002\003CBX\252\002\031Cobaltspeech.Bluehenge.V1\312\002\031Cobaltspeech\\Bluehenge\\V1\342\002%Cobaltspeech\\Bluehenge\\V1\\GPBMetadata\352\002\033Cobaltspeech::Bluehenge::V1'
   _globals['_VERSIONREQUEST']._serialized_start=113

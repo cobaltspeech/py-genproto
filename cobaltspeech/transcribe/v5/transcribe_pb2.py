@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cobaltspeech.transcribe.v5.transcribe_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\036com.cobaltspeech.transcribe.v5B\017TranscribeProtoP\001ZKgithub.com/cobaltspeech/go-genproto/cobaltspeech/transcribe/v5;transcribev5\242\002\003CTX\252\002\032Cobaltspeech.Transcribe.V5\312\002\032Cobaltspeech\\Transcribe\\V5\342\002&Cobaltspeech\\Transcribe\\V5\\GPBMetadata\352\002\034Cobaltspeech::Transcribe::V5'
   _CONFUSIONNETWORKARCFEATURES_CONFIDENCEENTRY._options = None

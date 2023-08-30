@@ -12,12 +12,16 @@ class VersionRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class VersionResponse(_message.Message):
-    __slots__ = ["bluehenge", "diatheke_version_response"]
+    __slots__ = ["bluehenge", "diatheke_version_response", "source_data_version", "knowledge_graph_version"]
     BLUEHENGE_FIELD_NUMBER: _ClassVar[int]
     DIATHEKE_VERSION_RESPONSE_FIELD_NUMBER: _ClassVar[int]
+    SOURCE_DATA_VERSION_FIELD_NUMBER: _ClassVar[int]
+    KNOWLEDGE_GRAPH_VERSION_FIELD_NUMBER: _ClassVar[int]
     bluehenge: str
     diatheke_version_response: _diatheke_pb2.VersionResponse
-    def __init__(self, bluehenge: _Optional[str] = ..., diatheke_version_response: _Optional[_Union[_diatheke_pb2.VersionResponse, _Mapping]] = ...) -> None: ...
+    source_data_version: str
+    knowledge_graph_version: str
+    def __init__(self, bluehenge: _Optional[str] = ..., diatheke_version_response: _Optional[_Union[_diatheke_pb2.VersionResponse, _Mapping]] = ..., source_data_version: _Optional[str] = ..., knowledge_graph_version: _Optional[str] = ...) -> None: ...
 
 class ListModelsRequest(_message.Message):
     __slots__ = ["diatheke_list_models_request"]
@@ -135,6 +139,18 @@ class GetProcedureResponse(_message.Message):
     procedure: Procedure
     def __init__(self, procedure: _Optional[_Union[Procedure, _Mapping]] = ...) -> None: ...
 
+class GetTaskRequest(_message.Message):
+    __slots__ = ["id"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    def __init__(self, id: _Optional[str] = ...) -> None: ...
+
+class GetTaskResponse(_message.Message):
+    __slots__ = ["task"]
+    TASK_FIELD_NUMBER: _ClassVar[int]
+    task: Task
+    def __init__(self, task: _Optional[_Union[Task, _Mapping]] = ...) -> None: ...
+
 class GetTreeRequest(_message.Message):
     __slots__ = ["name"]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -214,7 +230,7 @@ class Task(_message.Message):
     def __init__(self, id: _Optional[str] = ..., task_name: _Optional[str] = ..., task_number: _Optional[str] = ..., additional_names: _Optional[_Iterable[str]] = ..., warning_text: _Optional[str] = ..., steps: _Optional[_Iterable[_Union[StepData, _Mapping]]] = ...) -> None: ...
 
 class StepData(_message.Message):
-    __slots__ = ["id", "instruction_text", "summary_text", "person", "task_number", "step_number", "page", "segment_type", "image", "notes"]
+    __slots__ = ["id", "instruction_text", "summary_text", "person", "task_number", "step_number", "page", "segment_type", "image", "parts", "notes"]
     ID_FIELD_NUMBER: _ClassVar[int]
     INSTRUCTION_TEXT_FIELD_NUMBER: _ClassVar[int]
     SUMMARY_TEXT_FIELD_NUMBER: _ClassVar[int]
@@ -224,6 +240,7 @@ class StepData(_message.Message):
     PAGE_FIELD_NUMBER: _ClassVar[int]
     SEGMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     IMAGE_FIELD_NUMBER: _ClassVar[int]
+    PARTS_FIELD_NUMBER: _ClassVar[int]
     NOTES_FIELD_NUMBER: _ClassVar[int]
     id: str
     instruction_text: str
@@ -234,8 +251,9 @@ class StepData(_message.Message):
     page: str
     segment_type: str
     image: _containers.RepeatedScalarFieldContainer[str]
+    parts: _containers.RepeatedScalarFieldContainer[str]
     notes: _containers.RepeatedCompositeFieldContainer[Note]
-    def __init__(self, id: _Optional[str] = ..., instruction_text: _Optional[str] = ..., summary_text: _Optional[str] = ..., person: _Optional[str] = ..., task_number: _Optional[str] = ..., step_number: _Optional[str] = ..., page: _Optional[str] = ..., segment_type: _Optional[str] = ..., image: _Optional[_Iterable[str]] = ..., notes: _Optional[_Iterable[_Union[Note, _Mapping]]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., instruction_text: _Optional[str] = ..., summary_text: _Optional[str] = ..., person: _Optional[str] = ..., task_number: _Optional[str] = ..., step_number: _Optional[str] = ..., page: _Optional[str] = ..., segment_type: _Optional[str] = ..., image: _Optional[_Iterable[str]] = ..., parts: _Optional[_Iterable[str]] = ..., notes: _Optional[_Iterable[_Union[Note, _Mapping]]] = ...) -> None: ...
 
 class Tree(_message.Message):
     __slots__ = ["id", "tree_name", "tree_number", "additional_names", "prerequisites_warning_text", "nodes"]
@@ -254,16 +272,22 @@ class Tree(_message.Message):
     def __init__(self, id: _Optional[str] = ..., tree_name: _Optional[str] = ..., tree_number: _Optional[str] = ..., additional_names: _Optional[_Iterable[str]] = ..., prerequisites_warning_text: _Optional[str] = ..., nodes: _Optional[_Iterable[_Union[TreeNode, _Mapping]]] = ...) -> None: ...
 
 class TreeNode(_message.Message):
-    __slots__ = ["id", "node_index", "instruction_text", "options"]
+    __slots__ = ["id", "node_index", "instruction_text", "options", "image", "parts", "notes"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NODE_INDEX_FIELD_NUMBER: _ClassVar[int]
     INSTRUCTION_TEXT_FIELD_NUMBER: _ClassVar[int]
     OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    PARTS_FIELD_NUMBER: _ClassVar[int]
+    NOTES_FIELD_NUMBER: _ClassVar[int]
     id: str
     node_index: str
     instruction_text: str
     options: _containers.RepeatedCompositeFieldContainer[TroubleOptions]
-    def __init__(self, id: _Optional[str] = ..., node_index: _Optional[str] = ..., instruction_text: _Optional[str] = ..., options: _Optional[_Iterable[_Union[TroubleOptions, _Mapping]]] = ...) -> None: ...
+    image: _containers.RepeatedScalarFieldContainer[str]
+    parts: _containers.RepeatedScalarFieldContainer[str]
+    notes: _containers.RepeatedCompositeFieldContainer[Note]
+    def __init__(self, id: _Optional[str] = ..., node_index: _Optional[str] = ..., instruction_text: _Optional[str] = ..., options: _Optional[_Iterable[_Union[TroubleOptions, _Mapping]]] = ..., image: _Optional[_Iterable[str]] = ..., parts: _Optional[_Iterable[str]] = ..., notes: _Optional[_Iterable[_Union[Note, _Mapping]]] = ...) -> None: ...
 
 class TroubleOptions(_message.Message):
     __slots__ = ["condition", "destination"]
@@ -327,13 +351,33 @@ class Extraction(_message.Message):
     relation: Relation
     def __init__(self, id: _Optional[str] = ..., subject: _Optional[_Union[Entity, _Mapping]] = ..., object: _Optional[_Union[Entity, _Mapping]] = ..., relation: _Optional[_Union[Relation, _Mapping]] = ...) -> None: ...
 
+class GetEntityRequest(_message.Message):
+    __slots__ = ["name"]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    def __init__(self, name: _Optional[str] = ...) -> None: ...
+
+class GetEntityResponse(_message.Message):
+    __slots__ = ["entity"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: Entity
+    def __init__(self, entity: _Optional[_Union[Entity, _Mapping]] = ...) -> None: ...
+
 class Entity(_message.Message):
-    __slots__ = ["id", "mentions"]
+    __slots__ = ["id", "mentions", "name", "description", "location", "page"]
     ID_FIELD_NUMBER: _ClassVar[int]
     MENTIONS_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    LOCATION_FIELD_NUMBER: _ClassVar[int]
+    PAGE_FIELD_NUMBER: _ClassVar[int]
     id: str
     mentions: Mention
-    def __init__(self, id: _Optional[str] = ..., mentions: _Optional[_Union[Mention, _Mapping]] = ...) -> None: ...
+    name: str
+    description: str
+    location: str
+    page: str
+    def __init__(self, id: _Optional[str] = ..., mentions: _Optional[_Union[Mention, _Mapping]] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., location: _Optional[str] = ..., page: _Optional[str] = ...) -> None: ...
 
 class Relation(_message.Message):
     __slots__ = ["id", "mentions"]

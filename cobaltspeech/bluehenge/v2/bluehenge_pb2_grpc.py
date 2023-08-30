@@ -96,6 +96,11 @@ class BluehengeServiceStub(object):
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetProcedureRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetProcedureResponse.FromString,
                 )
+        self.GetTask = channel.unary_unary(
+                '/cobaltspeech.bluehenge.v2.BluehengeService/GetTask',
+                request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetTaskRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetTaskResponse.FromString,
+                )
         self.GetTree = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v2.BluehengeService/GetTree',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetTreeRequest.SerializeToString,
@@ -110,6 +115,11 @@ class BluehengeServiceStub(object):
                 '/cobaltspeech.bluehenge.v2.BluehengeService/GetExtractionRelationship',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipResponse.FromString,
+                )
+        self.GetEntity = channel.unary_unary(
+                '/cobaltspeech.bluehenge.v2.BluehengeService/GetEntity',
+                request_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetEntityRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetEntityResponse.FromString,
                 )
         self.GetEntityImageData = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v2.BluehengeService/GetEntityImageData',
@@ -268,6 +278,14 @@ class BluehengeServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetTask(self, request, context):
+        """Gets a single task identified by id.
+        The response returns everything you should need to be able to display the Task and it's Steps to the user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetTree(self, request, context):
         """Gets a single tree identified by id.
         Trees contain instructions followed by questions to help users
@@ -292,6 +310,15 @@ class BluehengeServiceServicer(object):
         specific entity-relation pair, e.g. entity:"sky", relation:"has color"
         Extractions contain Subject-Relation-Object sets. For example,
         entity:"sky", relation:"has color", object:"blue".
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetEntity(self, request, context):
+        """Gets the data contained within a single entity identified by name.
+        Entities contain information about parts and other question
+        answering content. See Entity for more details.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -368,6 +395,11 @@ def add_BluehengeServiceServicer_to_server(servicer, server):
                     request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetProcedureRequest.FromString,
                     response_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetProcedureResponse.SerializeToString,
             ),
+            'GetTask': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTask,
+                    request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetTaskRequest.FromString,
+                    response_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetTaskResponse.SerializeToString,
+            ),
             'GetTree': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTree,
                     request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetTreeRequest.FromString,
@@ -382,6 +414,11 @@ def add_BluehengeServiceServicer_to_server(servicer, server):
                     servicer.GetExtractionRelationship,
                     request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipRequest.FromString,
                     response_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipResponse.SerializeToString,
+            ),
+            'GetEntity': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEntity,
+                    request_deserializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetEntityRequest.FromString,
+                    response_serializer=cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetEntityResponse.SerializeToString,
             ),
             'GetEntityImageData': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEntityImageData,
@@ -625,6 +662,23 @@ class BluehengeService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetTask(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v2.BluehengeService/GetTask',
+            cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetTaskRequest.SerializeToString,
+            cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetTaskResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetTree(request,
             target,
             options=(),
@@ -672,6 +726,23 @@ class BluehengeService(object):
         return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v2.BluehengeService/GetExtractionRelationship',
             cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetExtractionRelationshipResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetEntity(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v2.BluehengeService/GetEntity',
+            cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetEntityRequest.SerializeToString,
+            cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2.GetEntityResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

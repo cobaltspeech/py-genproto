@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cobaltspeech.voicegen.v1.voicegen_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\034com.cobaltspeech.voicegen.v1B\rVoicegenProtoP\001ZGgithub.com/cobaltspeech/go-genproto/cobaltspeech/voicegen/v1;voicegenv1\242\002\003CVX\252\002\030Cobaltspeech.Voicegen.V1\312\002\030Cobaltspeech\\Voicegen\\V1\342\002$Cobaltspeech\\Voicegen\\V1\\GPBMetadata\352\002\032Cobaltspeech::Voicegen::V1'
   _VOICEGENSERVICE.methods_by_name['Version']._options = None

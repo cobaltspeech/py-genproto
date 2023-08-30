@@ -21,7 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'cobaltspeech.diatheke.v3.diatheke_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\034com.cobaltspeech.diatheke.v3B\rDiathekeProtoP\001ZGgithub.com/cobaltspeech/go-genproto/cobaltspeech/diatheke/v3;diathekev3\242\002\003CDX\252\002\030Cobaltspeech.Diatheke.V3\312\002\030Cobaltspeech\\Diatheke\\V3\342\002$Cobaltspeech\\Diatheke\\V3\\GPBMetadata\352\002\032Cobaltspeech::Diatheke::V3'
   _COMMANDRESULT_OUTPARAMETERSENTRY._options = None
