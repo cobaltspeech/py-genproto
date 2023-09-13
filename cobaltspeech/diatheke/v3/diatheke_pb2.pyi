@@ -72,10 +72,12 @@ class UpdateSessionResponse(_message.Message):
     def __init__(self, session_output: _Optional[_Union[SessionOutput, _Mapping]] = ...) -> None: ...
 
 class StreamTTSRequest(_message.Message):
-    __slots__ = ["reply_action"]
+    __slots__ = ["reply_action", "token"]
     REPLY_ACTION_FIELD_NUMBER: _ClassVar[int]
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
     reply_action: ReplyAction
-    def __init__(self, reply_action: _Optional[_Union[ReplyAction, _Mapping]] = ...) -> None: ...
+    token: TokenData
+    def __init__(self, reply_action: _Optional[_Union[ReplyAction, _Mapping]] = ..., token: _Optional[_Union[TokenData, _Mapping]] = ...) -> None: ...
 
 class StreamTTSResponse(_message.Message):
     __slots__ = ["audio"]
