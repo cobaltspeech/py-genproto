@@ -34,12 +34,14 @@ class ListModelsResponse(_message.Message):
     def __init__(self, models: _Optional[_Iterable[_Union[ModelInfo, _Mapping]]] = ...) -> None: ...
 
 class CreateSessionRequest(_message.Message):
-    __slots__ = ["model_id", "wakeword"]
+    __slots__ = ["model_id", "wakeword", "metadata"]
     MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     WAKEWORD_FIELD_NUMBER: _ClassVar[int]
+    METADATA_FIELD_NUMBER: _ClassVar[int]
     model_id: str
     wakeword: str
-    def __init__(self, model_id: _Optional[str] = ..., wakeword: _Optional[str] = ...) -> None: ...
+    metadata: SessionMetadata
+    def __init__(self, model_id: _Optional[str] = ..., wakeword: _Optional[str] = ..., metadata: _Optional[_Union[SessionMetadata, _Mapping]] = ...) -> None: ...
 
 class CreateSessionResponse(_message.Message):
     __slots__ = ["session_output"]
@@ -281,3 +283,11 @@ class TranscribeResponse(_message.Message):
     is_partial: bool
     cubic_result: _cubic_pb2.RecognitionResult
     def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., is_partial: bool = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
+
+class SessionMetadata(_message.Message):
+    __slots__ = ["custom_metadata", "storage_file_prefix"]
+    CUSTOM_METADATA_FIELD_NUMBER: _ClassVar[int]
+    STORAGE_FILE_PREFIX_FIELD_NUMBER: _ClassVar[int]
+    custom_metadata: str
+    storage_file_prefix: str
+    def __init__(self, custom_metadata: _Optional[str] = ..., storage_file_prefix: _Optional[str] = ...) -> None: ...
