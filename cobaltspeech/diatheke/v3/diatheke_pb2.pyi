@@ -8,11 +8,11 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class VersionRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VersionResponse(_message.Message):
-    __slots__ = ["diatheke", "chosun", "cubic", "luna"]
+    __slots__ = ("diatheke", "chosun", "cubic", "luna")
     DIATHEKE_FIELD_NUMBER: _ClassVar[int]
     CHOSUN_FIELD_NUMBER: _ClassVar[int]
     CUBIC_FIELD_NUMBER: _ClassVar[int]
@@ -24,17 +24,17 @@ class VersionResponse(_message.Message):
     def __init__(self, diatheke: _Optional[str] = ..., chosun: _Optional[str] = ..., cubic: _Optional[str] = ..., luna: _Optional[str] = ...) -> None: ...
 
 class ListModelsRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListModelsResponse(_message.Message):
-    __slots__ = ["models"]
+    __slots__ = ("models",)
     MODELS_FIELD_NUMBER: _ClassVar[int]
     models: _containers.RepeatedCompositeFieldContainer[ModelInfo]
     def __init__(self, models: _Optional[_Iterable[_Union[ModelInfo, _Mapping]]] = ...) -> None: ...
 
 class CreateSessionRequest(_message.Message):
-    __slots__ = ["model_id", "wakeword", "metadata"]
+    __slots__ = ("model_id", "wakeword", "metadata")
     MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     WAKEWORD_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -44,35 +44,35 @@ class CreateSessionRequest(_message.Message):
     def __init__(self, model_id: _Optional[str] = ..., wakeword: _Optional[str] = ..., metadata: _Optional[_Union[SessionMetadata, _Mapping]] = ...) -> None: ...
 
 class CreateSessionResponse(_message.Message):
-    __slots__ = ["session_output"]
+    __slots__ = ("session_output",)
     SESSION_OUTPUT_FIELD_NUMBER: _ClassVar[int]
     session_output: SessionOutput
     def __init__(self, session_output: _Optional[_Union[SessionOutput, _Mapping]] = ...) -> None: ...
 
 class DeleteSessionRequest(_message.Message):
-    __slots__ = ["token_data"]
+    __slots__ = ("token_data",)
     TOKEN_DATA_FIELD_NUMBER: _ClassVar[int]
     token_data: TokenData
     def __init__(self, token_data: _Optional[_Union[TokenData, _Mapping]] = ...) -> None: ...
 
 class DeleteSessionResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class UpdateSessionRequest(_message.Message):
-    __slots__ = ["session_input"]
+    __slots__ = ("session_input",)
     SESSION_INPUT_FIELD_NUMBER: _ClassVar[int]
     session_input: SessionInput
     def __init__(self, session_input: _Optional[_Union[SessionInput, _Mapping]] = ...) -> None: ...
 
 class UpdateSessionResponse(_message.Message):
-    __slots__ = ["session_output"]
+    __slots__ = ("session_output",)
     SESSION_OUTPUT_FIELD_NUMBER: _ClassVar[int]
     session_output: SessionOutput
     def __init__(self, session_output: _Optional[_Union[SessionOutput, _Mapping]] = ...) -> None: ...
 
 class StreamTTSRequest(_message.Message):
-    __slots__ = ["reply_action", "token"]
+    __slots__ = ("reply_action", "token")
     REPLY_ACTION_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     reply_action: ReplyAction
@@ -80,13 +80,13 @@ class StreamTTSRequest(_message.Message):
     def __init__(self, reply_action: _Optional[_Union[ReplyAction, _Mapping]] = ..., token: _Optional[_Union[TokenData, _Mapping]] = ...) -> None: ...
 
 class StreamTTSResponse(_message.Message):
-    __slots__ = ["audio"]
+    __slots__ = ("audio",)
     AUDIO_FIELD_NUMBER: _ClassVar[int]
     audio: bytes
     def __init__(self, audio: _Optional[bytes] = ...) -> None: ...
 
 class ModelInfo(_message.Message):
-    __slots__ = ["id", "name", "language", "asr_sample_rate", "tts_sample_rate"]
+    __slots__ = ("id", "name", "language", "asr_sample_rate", "tts_sample_rate")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     LANGUAGE_FIELD_NUMBER: _ClassVar[int]
@@ -100,7 +100,7 @@ class ModelInfo(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., language: _Optional[str] = ..., asr_sample_rate: _Optional[int] = ..., tts_sample_rate: _Optional[int] = ...) -> None: ...
 
 class SessionInput(_message.Message):
-    __slots__ = ["token", "text", "asr", "cmd", "story"]
+    __slots__ = ("token", "text", "asr", "cmd", "story")
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     TEXT_FIELD_NUMBER: _ClassVar[int]
     ASR_FIELD_NUMBER: _ClassVar[int]
@@ -114,7 +114,7 @@ class SessionInput(_message.Message):
     def __init__(self, token: _Optional[_Union[TokenData, _Mapping]] = ..., text: _Optional[_Union[TextInput, _Mapping]] = ..., asr: _Optional[_Union[ASRResult, _Mapping]] = ..., cmd: _Optional[_Union[CommandResult, _Mapping]] = ..., story: _Optional[_Union[SetStory, _Mapping]] = ...) -> None: ...
 
 class TokenData(_message.Message):
-    __slots__ = ["data", "id", "metadata"]
+    __slots__ = ("data", "id", "metadata")
     DATA_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -124,15 +124,15 @@ class TokenData(_message.Message):
     def __init__(self, data: _Optional[bytes] = ..., id: _Optional[str] = ..., metadata: _Optional[str] = ...) -> None: ...
 
 class TextInput(_message.Message):
-    __slots__ = ["text"]
+    __slots__ = ("text",)
     TEXT_FIELD_NUMBER: _ClassVar[int]
     text: str
     def __init__(self, text: _Optional[str] = ...) -> None: ...
 
 class CommandResult(_message.Message):
-    __slots__ = ["id", "out_parameters", "error"]
+    __slots__ = ("id", "out_parameters", "error")
     class OutParametersEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -147,9 +147,9 @@ class CommandResult(_message.Message):
     def __init__(self, id: _Optional[str] = ..., out_parameters: _Optional[_Mapping[str, str]] = ..., error: _Optional[str] = ...) -> None: ...
 
 class SetStory(_message.Message):
-    __slots__ = ["story_id", "parameters"]
+    __slots__ = ("story_id", "parameters")
     class ParametersEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -162,7 +162,7 @@ class SetStory(_message.Message):
     def __init__(self, story_id: _Optional[str] = ..., parameters: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class SessionOutput(_message.Message):
-    __slots__ = ["token", "action_list"]
+    __slots__ = ("token", "action_list")
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     ACTION_LIST_FIELD_NUMBER: _ClassVar[int]
     token: TokenData
@@ -170,7 +170,7 @@ class SessionOutput(_message.Message):
     def __init__(self, token: _Optional[_Union[TokenData, _Mapping]] = ..., action_list: _Optional[_Iterable[_Union[ActionData, _Mapping]]] = ...) -> None: ...
 
 class ActionData(_message.Message):
-    __slots__ = ["input", "command", "reply", "transcribe"]
+    __slots__ = ("input", "command", "reply", "transcribe")
     INPUT_FIELD_NUMBER: _ClassVar[int]
     COMMAND_FIELD_NUMBER: _ClassVar[int]
     REPLY_FIELD_NUMBER: _ClassVar[int]
@@ -182,7 +182,7 @@ class ActionData(_message.Message):
     def __init__(self, input: _Optional[_Union[WaitForUserAction, _Mapping]] = ..., command: _Optional[_Union[CommandAction, _Mapping]] = ..., reply: _Optional[_Union[ReplyAction, _Mapping]] = ..., transcribe: _Optional[_Union[TranscribeAction, _Mapping]] = ...) -> None: ...
 
 class WaitForUserAction(_message.Message):
-    __slots__ = ["requires_wake_word", "immediate"]
+    __slots__ = ("requires_wake_word", "immediate")
     REQUIRES_WAKE_WORD_FIELD_NUMBER: _ClassVar[int]
     IMMEDIATE_FIELD_NUMBER: _ClassVar[int]
     requires_wake_word: bool
@@ -190,9 +190,9 @@ class WaitForUserAction(_message.Message):
     def __init__(self, requires_wake_word: bool = ..., immediate: bool = ...) -> None: ...
 
 class CommandAction(_message.Message):
-    __slots__ = ["id", "input_parameters", "nlu_result"]
+    __slots__ = ("id", "input_parameters", "nlu_result")
     class InputParametersEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -207,7 +207,7 @@ class CommandAction(_message.Message):
     def __init__(self, id: _Optional[str] = ..., input_parameters: _Optional[_Mapping[str, str]] = ..., nlu_result: _Optional[_Union[_chosun_pb2.ParseResponse, _Mapping]] = ...) -> None: ...
 
 class ReplyAction(_message.Message):
-    __slots__ = ["text", "luna_model"]
+    __slots__ = ("text", "luna_model")
     TEXT_FIELD_NUMBER: _ClassVar[int]
     LUNA_MODEL_FIELD_NUMBER: _ClassVar[int]
     text: str
@@ -215,7 +215,7 @@ class ReplyAction(_message.Message):
     def __init__(self, text: _Optional[str] = ..., luna_model: _Optional[str] = ...) -> None: ...
 
 class TranscribeAction(_message.Message):
-    __slots__ = ["id", "cubic_model_id", "diatheke_model_id"]
+    __slots__ = ("id", "cubic_model_id", "diatheke_model_id")
     ID_FIELD_NUMBER: _ClassVar[int]
     CUBIC_MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     DIATHEKE_MODEL_ID_FIELD_NUMBER: _ClassVar[int]
@@ -225,7 +225,7 @@ class TranscribeAction(_message.Message):
     def __init__(self, id: _Optional[str] = ..., cubic_model_id: _Optional[str] = ..., diatheke_model_id: _Optional[str] = ...) -> None: ...
 
 class StreamASRRequest(_message.Message):
-    __slots__ = ["token", "audio"]
+    __slots__ = ("token", "audio")
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     AUDIO_FIELD_NUMBER: _ClassVar[int]
     token: TokenData
@@ -233,13 +233,13 @@ class StreamASRRequest(_message.Message):
     def __init__(self, token: _Optional[_Union[TokenData, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
 
 class StreamASRResponse(_message.Message):
-    __slots__ = ["asr_result"]
+    __slots__ = ("asr_result",)
     ASR_RESULT_FIELD_NUMBER: _ClassVar[int]
     asr_result: ASRResult
     def __init__(self, asr_result: _Optional[_Union[ASRResult, _Mapping]] = ...) -> None: ...
 
 class StreamASRWithPartialsRequest(_message.Message):
-    __slots__ = ["token", "audio"]
+    __slots__ = ("token", "audio")
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     AUDIO_FIELD_NUMBER: _ClassVar[int]
     token: TokenData
@@ -247,7 +247,7 @@ class StreamASRWithPartialsRequest(_message.Message):
     def __init__(self, token: _Optional[_Union[TokenData, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
 
 class StreamASRWithPartialsResponse(_message.Message):
-    __slots__ = ["partial_result", "asr_result"]
+    __slots__ = ("partial_result", "asr_result")
     PARTIAL_RESULT_FIELD_NUMBER: _ClassVar[int]
     ASR_RESULT_FIELD_NUMBER: _ClassVar[int]
     partial_result: _cubic_pb2.RecognitionResult
@@ -255,7 +255,7 @@ class StreamASRWithPartialsResponse(_message.Message):
     def __init__(self, partial_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ..., asr_result: _Optional[_Union[ASRResult, _Mapping]] = ...) -> None: ...
 
 class ASRResult(_message.Message):
-    __slots__ = ["text", "confidence", "timed_out", "cubic_result"]
+    __slots__ = ("text", "confidence", "timed_out", "cubic_result")
     TEXT_FIELD_NUMBER: _ClassVar[int]
     CONFIDENCE_FIELD_NUMBER: _ClassVar[int]
     TIMED_OUT_FIELD_NUMBER: _ClassVar[int]
@@ -267,7 +267,7 @@ class ASRResult(_message.Message):
     def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., timed_out: bool = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
 
 class TranscribeRequest(_message.Message):
-    __slots__ = ["action", "audio"]
+    __slots__ = ("action", "audio")
     ACTION_FIELD_NUMBER: _ClassVar[int]
     AUDIO_FIELD_NUMBER: _ClassVar[int]
     action: TranscribeAction
@@ -275,7 +275,7 @@ class TranscribeRequest(_message.Message):
     def __init__(self, action: _Optional[_Union[TranscribeAction, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
 
 class TranscribeResponse(_message.Message):
-    __slots__ = ["text", "confidence", "is_partial", "cubic_result"]
+    __slots__ = ("text", "confidence", "is_partial", "cubic_result")
     TEXT_FIELD_NUMBER: _ClassVar[int]
     CONFIDENCE_FIELD_NUMBER: _ClassVar[int]
     IS_PARTIAL_FIELD_NUMBER: _ClassVar[int]
@@ -287,7 +287,7 @@ class TranscribeResponse(_message.Message):
     def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., is_partial: bool = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
 
 class SessionMetadata(_message.Message):
-    __slots__ = ["custom_metadata", "storage_file_prefix"]
+    __slots__ = ("custom_metadata", "storage_file_prefix")
     CUSTOM_METADATA_FIELD_NUMBER: _ClassVar[int]
     STORAGE_FILE_PREFIX_FIELD_NUMBER: _ClassVar[int]
     custom_metadata: str

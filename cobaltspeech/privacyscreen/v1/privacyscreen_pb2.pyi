@@ -1,4 +1,3 @@
-from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -7,27 +6,27 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class VersionRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VersionResponse(_message.Message):
-    __slots__ = ["version"]
+    __slots__ = ("version",)
     VERSION_FIELD_NUMBER: _ClassVar[int]
     version: str
     def __init__(self, version: _Optional[str] = ...) -> None: ...
 
 class ListModelsRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListModelsResponse(_message.Message):
-    __slots__ = ["models"]
+    __slots__ = ("models",)
     MODELS_FIELD_NUMBER: _ClassVar[int]
     models: _containers.RepeatedCompositeFieldContainer[ModelInfo]
     def __init__(self, models: _Optional[_Iterable[_Union[ModelInfo, _Mapping]]] = ...) -> None: ...
 
 class RedactTextRequest(_message.Message):
-    __slots__ = ["config", "text"]
+    __slots__ = ("config", "text")
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     TEXT_FIELD_NUMBER: _ClassVar[int]
     config: RedactionConfig
@@ -35,7 +34,7 @@ class RedactTextRequest(_message.Message):
     def __init__(self, config: _Optional[_Union[RedactionConfig, _Mapping]] = ..., text: _Optional[str] = ...) -> None: ...
 
 class RedactTextResponse(_message.Message):
-    __slots__ = ["text", "redacted_tokens"]
+    __slots__ = ("text", "redacted_tokens")
     TEXT_FIELD_NUMBER: _ClassVar[int]
     REDACTED_TOKENS_FIELD_NUMBER: _ClassVar[int]
     text: str
@@ -43,7 +42,7 @@ class RedactTextResponse(_message.Message):
     def __init__(self, text: _Optional[str] = ..., redacted_tokens: _Optional[_Iterable[_Union[RedactedToken, _Mapping]]] = ...) -> None: ...
 
 class RedactTranscriptRequest(_message.Message):
-    __slots__ = ["config", "transcript"]
+    __slots__ = ("config", "transcript")
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
     config: RedactionConfig
@@ -51,13 +50,13 @@ class RedactTranscriptRequest(_message.Message):
     def __init__(self, config: _Optional[_Union[RedactionConfig, _Mapping]] = ..., transcript: _Optional[_Union[Transcript, _Mapping]] = ...) -> None: ...
 
 class RedactTranscriptResponse(_message.Message):
-    __slots__ = ["transcript"]
+    __slots__ = ("transcript",)
     TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
     transcript: Transcript
     def __init__(self, transcript: _Optional[_Union[Transcript, _Mapping]] = ...) -> None: ...
 
 class StreamingRedactTranscribedAudioRequest(_message.Message):
-    __slots__ = ["config", "audio"]
+    __slots__ = ("config", "audio")
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     AUDIO_FIELD_NUMBER: _ClassVar[int]
     config: RedactTranscribedAudioConfig
@@ -65,7 +64,7 @@ class StreamingRedactTranscribedAudioRequest(_message.Message):
     def __init__(self, config: _Optional[_Union[RedactTranscribedAudioConfig, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
 
 class StreamingRedactTranscribedAudioResponse(_message.Message):
-    __slots__ = ["utterance", "audio"]
+    __slots__ = ("utterance", "audio")
     UTTERANCE_FIELD_NUMBER: _ClassVar[int]
     AUDIO_FIELD_NUMBER: _ClassVar[int]
     utterance: Utterance
@@ -73,7 +72,7 @@ class StreamingRedactTranscribedAudioResponse(_message.Message):
     def __init__(self, utterance: _Optional[_Union[Utterance, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
 
 class StreamingTranscribeAndRedactRequest(_message.Message):
-    __slots__ = ["config", "audio"]
+    __slots__ = ("config", "audio")
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     AUDIO_FIELD_NUMBER: _ClassVar[int]
     config: TranscribeAndRedactConfig
@@ -81,7 +80,7 @@ class StreamingTranscribeAndRedactRequest(_message.Message):
     def __init__(self, config: _Optional[_Union[TranscribeAndRedactConfig, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
 
 class StreamingTranscribeAndRedactResponse(_message.Message):
-    __slots__ = ["utterance", "audio"]
+    __slots__ = ("utterance", "audio")
     UTTERANCE_FIELD_NUMBER: _ClassVar[int]
     AUDIO_FIELD_NUMBER: _ClassVar[int]
     utterance: TranscribeAndRedactUtterance
@@ -89,7 +88,7 @@ class StreamingTranscribeAndRedactResponse(_message.Message):
     def __init__(self, utterance: _Optional[_Union[TranscribeAndRedactUtterance, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
 
 class ModelInfo(_message.Message):
-    __slots__ = ["id", "name", "redaction_classes"]
+    __slots__ = ("id", "name", "redaction_classes")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     REDACTION_CLASSES_FIELD_NUMBER: _ClassVar[int]
@@ -99,7 +98,7 @@ class ModelInfo(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., redaction_classes: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class RedactTranscribedAudioConfig(_message.Message):
-    __slots__ = ["redaction_config", "transcript"]
+    __slots__ = ("redaction_config", "transcript")
     REDACTION_CONFIG_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
     redaction_config: RedactionConfig
@@ -107,7 +106,7 @@ class RedactTranscribedAudioConfig(_message.Message):
     def __init__(self, redaction_config: _Optional[_Union[RedactionConfig, _Mapping]] = ..., transcript: _Optional[_Union[Transcript, _Mapping]] = ...) -> None: ...
 
 class TranscribeAndRedactConfig(_message.Message):
-    __slots__ = ["redaction_config", "enable_unredacted_transcript"]
+    __slots__ = ("redaction_config", "enable_unredacted_transcript")
     REDACTION_CONFIG_FIELD_NUMBER: _ClassVar[int]
     ENABLE_UNREDACTED_TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
     redaction_config: RedactionConfig
@@ -115,7 +114,7 @@ class TranscribeAndRedactConfig(_message.Message):
     def __init__(self, redaction_config: _Optional[_Union[RedactionConfig, _Mapping]] = ..., enable_unredacted_transcript: bool = ...) -> None: ...
 
 class RedactionConfig(_message.Message):
-    __slots__ = ["model_id", "redaction_classes", "disable_streaming"]
+    __slots__ = ("model_id", "redaction_classes", "disable_streaming")
     MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     REDACTION_CLASSES_FIELD_NUMBER: _ClassVar[int]
     DISABLE_STREAMING_FIELD_NUMBER: _ClassVar[int]
@@ -125,13 +124,13 @@ class RedactionConfig(_message.Message):
     def __init__(self, model_id: _Optional[str] = ..., redaction_classes: _Optional[_Iterable[str]] = ..., disable_streaming: bool = ...) -> None: ...
 
 class Transcript(_message.Message):
-    __slots__ = ["utterances"]
+    __slots__ = ("utterances",)
     UTTERANCES_FIELD_NUMBER: _ClassVar[int]
     utterances: _containers.RepeatedCompositeFieldContainer[Utterance]
     def __init__(self, utterances: _Optional[_Iterable[_Union[Utterance, _Mapping]]] = ...) -> None: ...
 
 class TranscribeAndRedactUtterance(_message.Message):
-    __slots__ = ["redacted", "unredacted"]
+    __slots__ = ("redacted", "unredacted")
     REDACTED_FIELD_NUMBER: _ClassVar[int]
     UNREDACTED_FIELD_NUMBER: _ClassVar[int]
     redacted: Utterance
@@ -139,7 +138,7 @@ class TranscribeAndRedactUtterance(_message.Message):
     def __init__(self, redacted: _Optional[_Union[Utterance, _Mapping]] = ..., unredacted: _Optional[_Union[Utterance, _Mapping]] = ...) -> None: ...
 
 class Utterance(_message.Message):
-    __slots__ = ["audio_channel", "start_time_ms", "duration_ms", "asr_confidence", "words"]
+    __slots__ = ("audio_channel", "start_time_ms", "duration_ms", "asr_confidence", "words")
     AUDIO_CHANNEL_FIELD_NUMBER: _ClassVar[int]
     START_TIME_MS_FIELD_NUMBER: _ClassVar[int]
     DURATION_MS_FIELD_NUMBER: _ClassVar[int]
@@ -153,7 +152,7 @@ class Utterance(_message.Message):
     def __init__(self, audio_channel: _Optional[int] = ..., start_time_ms: _Optional[int] = ..., duration_ms: _Optional[int] = ..., asr_confidence: _Optional[float] = ..., words: _Optional[_Iterable[_Union[Word, _Mapping]]] = ...) -> None: ...
 
 class Word(_message.Message):
-    __slots__ = ["text", "asr_confidence", "start_time_ms", "duration_ms", "is_redacted", "redaction_class", "redaction_confidence"]
+    __slots__ = ("text", "asr_confidence", "start_time_ms", "duration_ms", "is_redacted", "redaction_class", "redaction_confidence")
     TEXT_FIELD_NUMBER: _ClassVar[int]
     ASR_CONFIDENCE_FIELD_NUMBER: _ClassVar[int]
     START_TIME_MS_FIELD_NUMBER: _ClassVar[int]
@@ -171,7 +170,7 @@ class Word(_message.Message):
     def __init__(self, text: _Optional[str] = ..., asr_confidence: _Optional[float] = ..., start_time_ms: _Optional[int] = ..., duration_ms: _Optional[int] = ..., is_redacted: bool = ..., redaction_class: _Optional[str] = ..., redaction_confidence: _Optional[float] = ...) -> None: ...
 
 class RedactedToken(_message.Message):
-    __slots__ = ["original_text", "original_offset", "original_length", "redaction_class", "redaction_confidence"]
+    __slots__ = ("original_text", "original_offset", "original_length", "redaction_class", "redaction_confidence")
     ORIGINAL_TEXT_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_OFFSET_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_LENGTH_FIELD_NUMBER: _ClassVar[int]

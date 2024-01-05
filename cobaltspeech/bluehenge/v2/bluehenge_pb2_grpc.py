@@ -245,7 +245,8 @@ class BluehengeServiceServicer(object):
         """Returns a list of all the procedures.
         This list is contains a simplified representation of the procedures,
         which can be helpful for displaying a directory or table of contents.
-        The full details of an individual procedure can be retrieved via GetProcedure.
+        The full details of an individual procedure can be retrieved via
+        GetProcedure.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -272,7 +273,8 @@ class BluehengeServiceServicer(object):
 
     def GetProcedure(self, request, context):
         """Gets a single procedure identified by id.
-        The response returns everything you should need to be able to display the Procedure and it's Steps and Tasks to the user.
+        The response returns everything you should need to be able to display the
+        Procedure and it's Steps and Tasks to the user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -280,7 +282,8 @@ class BluehengeServiceServicer(object):
 
     def GetTask(self, request, context):
         """Gets a single task identified by id.
-        The response returns everything you should need to be able to display the Task and it's Steps to the user.
+        The response returns everything you should need to be able to display the
+        Task and it's Steps to the user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
