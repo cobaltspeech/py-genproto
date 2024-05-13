@@ -19,47 +19,47 @@ class InteractServiceStub(object):
                 '/cobaltspeech.interact.v3.InteractService/Version',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.VersionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.VersionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/cobaltspeech.interact.v3.InteractService/ListModels',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateSession = channel.unary_unary(
                 '/cobaltspeech.interact.v3.InteractService/CreateSession',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.CreateSessionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.CreateSessionResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteSession = channel.unary_unary(
                 '/cobaltspeech.interact.v3.InteractService/DeleteSession',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.DeleteSessionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.DeleteSessionResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateSession = channel.unary_unary(
                 '/cobaltspeech.interact.v3.InteractService/UpdateSession',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.UpdateSessionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.UpdateSessionResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamASR = channel.stream_unary(
                 '/cobaltspeech.interact.v3.InteractService/StreamASR',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamASRRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamASRResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamTTS = channel.unary_stream(
                 '/cobaltspeech.interact.v3.InteractService/StreamTTS',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamTTSRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamTTSResponse.FromString,
-                )
+                _registered_method=True)
         self.Transcribe = channel.stream_stream(
                 '/cobaltspeech.interact.v3.InteractService/Transcribe',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.TranscribeRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.TranscribeResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamASRWithPartials = channel.stream_stream(
                 '/cobaltspeech.interact.v3.InteractService/StreamASRWithPartials',
                 request_serializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamASRWithPartialsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamASRWithPartialsResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class InteractServiceServicer(object):
@@ -239,11 +239,21 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.interact.v3.InteractService/Version',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/Version',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.VersionRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.VersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -256,11 +266,21 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.interact.v3.InteractService/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/ListModels',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateSession(request,
@@ -273,11 +293,21 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.interact.v3.InteractService/CreateSession',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/CreateSession',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.CreateSessionRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.CreateSessionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteSession(request,
@@ -290,11 +320,21 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.interact.v3.InteractService/DeleteSession',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/DeleteSession',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.DeleteSessionRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.DeleteSessionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateSession(request,
@@ -307,11 +347,21 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.interact.v3.InteractService/UpdateSession',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/UpdateSession',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.UpdateSessionRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.UpdateSessionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamASR(request_iterator,
@@ -324,11 +374,21 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/cobaltspeech.interact.v3.InteractService/StreamASR',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/StreamASR',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamASRRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamASRResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamTTS(request,
@@ -341,11 +401,21 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/cobaltspeech.interact.v3.InteractService/StreamTTS',
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/StreamTTS',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamTTSRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamTTSResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Transcribe(request_iterator,
@@ -358,11 +428,21 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.interact.v3.InteractService/Transcribe',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/Transcribe',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.TranscribeRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.TranscribeResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamASRWithPartials(request_iterator,
@@ -375,8 +455,18 @@ class InteractService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.interact.v3.InteractService/StreamASRWithPartials',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/cobaltspeech.interact.v3.InteractService/StreamASRWithPartials',
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamASRWithPartialsRequest.SerializeToString,
             cobaltspeech_dot_interact_dot_v3_dot_interact__pb2.StreamASRWithPartialsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

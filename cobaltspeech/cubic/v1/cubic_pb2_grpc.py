@@ -20,27 +20,27 @@ class CubicStub(object):
                 '/cobaltspeech.cubic.Cubic/Version',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.VersionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/cobaltspeech.cubic.Cubic/ListModels',
                 request_serializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.Recognize = channel.unary_unary(
                 '/cobaltspeech.cubic.Cubic/Recognize',
                 request_serializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.RecognizeRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.RecognitionResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamingRecognize = channel.stream_stream(
                 '/cobaltspeech.cubic.Cubic/StreamingRecognize',
                 request_serializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.StreamingRecognizeRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.RecognitionResponse.FromString,
-                )
+                _registered_method=True)
         self.CompileContext = channel.unary_unary(
                 '/cobaltspeech.cubic.Cubic/CompileContext',
                 request_serializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.CompileContextRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.CompileContextResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class CubicServicer(object):
@@ -149,11 +149,21 @@ class Cubic(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.cubic.Cubic/Version',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.cubic.Cubic/Version',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.VersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -166,11 +176,21 @@ class Cubic(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.cubic.Cubic/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.cubic.Cubic/ListModels',
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Recognize(request,
@@ -183,11 +203,21 @@ class Cubic(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.cubic.Cubic/Recognize',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.cubic.Cubic/Recognize',
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.RecognizeRequest.SerializeToString,
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.RecognitionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamingRecognize(request_iterator,
@@ -200,11 +230,21 @@ class Cubic(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.cubic.Cubic/StreamingRecognize',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/cobaltspeech.cubic.Cubic/StreamingRecognize',
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.StreamingRecognizeRequest.SerializeToString,
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.RecognitionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CompileContext(request,
@@ -217,8 +257,18 @@ class Cubic(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.cubic.Cubic/CompileContext',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.cubic.Cubic/CompileContext',
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.CompileContextRequest.SerializeToString,
             cobaltspeech_dot_cubic_dot_v1_dot_cubic__pb2.CompileContextResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

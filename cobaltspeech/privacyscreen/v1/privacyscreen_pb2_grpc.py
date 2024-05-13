@@ -19,32 +19,32 @@ class PrivacyScreenServiceStub(object):
                 '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/Version',
                 request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.VersionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.VersionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/ListModels',
                 request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.RedactText = channel.unary_unary(
                 '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactText',
                 request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextResponse.FromString,
-                )
+                _registered_method=True)
         self.RedactTranscript = channel.unary_unary(
                 '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactTranscript',
                 request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTranscriptRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTranscriptResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamingRedactTranscribedAudio = channel.stream_stream(
                 '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/StreamingRedactTranscribedAudio',
                 request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.StreamingRedactTranscribedAudioRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.StreamingRedactTranscribedAudioResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamingTranscribeAndRedact = channel.stream_stream(
                 '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/StreamingTranscribeAndRedact',
                 request_serializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.StreamingTranscribeAndRedactRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.StreamingTranscribeAndRedactResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class PrivacyScreenServiceServicer(object):
@@ -153,11 +153,21 @@ class PrivacyScreenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/Version',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/Version',
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.VersionRequest.SerializeToString,
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.VersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -170,11 +180,21 @@ class PrivacyScreenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/ListModels',
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def RedactText(request,
@@ -187,11 +207,21 @@ class PrivacyScreenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactText',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactText',
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextRequest.SerializeToString,
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTextResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def RedactTranscript(request,
@@ -204,11 +234,21 @@ class PrivacyScreenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactTranscript',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/RedactTranscript',
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTranscriptRequest.SerializeToString,
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.RedactTranscriptResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamingRedactTranscribedAudio(request_iterator,
@@ -221,11 +261,21 @@ class PrivacyScreenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/StreamingRedactTranscribedAudio',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/StreamingRedactTranscribedAudio',
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.StreamingRedactTranscribedAudioRequest.SerializeToString,
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.StreamingRedactTranscribedAudioResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamingTranscribeAndRedact(request_iterator,
@@ -238,8 +288,18 @@ class PrivacyScreenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/StreamingTranscribeAndRedact',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/cobaltspeech.privacyscreen.v1.PrivacyScreenService/StreamingTranscribeAndRedact',
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.StreamingTranscribeAndRedactRequest.SerializeToString,
             cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2.StreamingTranscribeAndRedactResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

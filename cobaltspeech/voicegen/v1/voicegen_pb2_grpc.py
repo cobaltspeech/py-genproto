@@ -19,17 +19,17 @@ class VoiceGenServiceStub(object):
                 '/cobaltspeech.voicegen.v1.VoiceGenService/Version',
                 request_serializer=cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.VersionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.VersionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/cobaltspeech.voicegen.v1.VoiceGenService/ListModels',
                 request_serializer=cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamingSynthesize = channel.unary_stream(
                 '/cobaltspeech.voicegen.v1.VoiceGenService/StreamingSynthesize',
                 request_serializer=cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.StreamingSynthesizeRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.StreamingSynthesizeResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class VoiceGenServiceServicer(object):
@@ -99,11 +99,21 @@ class VoiceGenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.voicegen.v1.VoiceGenService/Version',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.voicegen.v1.VoiceGenService/Version',
             cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.VersionRequest.SerializeToString,
             cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.VersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -116,11 +126,21 @@ class VoiceGenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.voicegen.v1.VoiceGenService/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.voicegen.v1.VoiceGenService/ListModels',
             cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamingSynthesize(request,
@@ -133,8 +153,18 @@ class VoiceGenService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/cobaltspeech.voicegen.v1.VoiceGenService/StreamingSynthesize',
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/cobaltspeech.voicegen.v1.VoiceGenService/StreamingSynthesize',
             cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.StreamingSynthesizeRequest.SerializeToString,
             cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2.StreamingSynthesizeResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

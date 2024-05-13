@@ -19,22 +19,22 @@ class TranscribeServiceStub(object):
                 '/cobaltspeech.transcribe.v5.TranscribeService/Version',
                 request_serializer=cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.VersionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.VersionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/cobaltspeech.transcribe.v5.TranscribeService/ListModels',
                 request_serializer=cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamingRecognize = channel.stream_stream(
                 '/cobaltspeech.transcribe.v5.TranscribeService/StreamingRecognize',
                 request_serializer=cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.StreamingRecognizeRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.StreamingRecognizeResponse.FromString,
-                )
+                _registered_method=True)
         self.CompileContext = channel.unary_unary(
                 '/cobaltspeech.transcribe.v5.TranscribeService/CompileContext',
                 request_serializer=cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.CompileContextRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.CompileContextResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class TranscribeServiceServicer(object):
@@ -127,11 +127,21 @@ class TranscribeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.transcribe.v5.TranscribeService/Version',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.transcribe.v5.TranscribeService/Version',
             cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.VersionRequest.SerializeToString,
             cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.VersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -144,11 +154,21 @@ class TranscribeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.transcribe.v5.TranscribeService/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.transcribe.v5.TranscribeService/ListModels',
             cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamingRecognize(request_iterator,
@@ -161,11 +181,21 @@ class TranscribeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.transcribe.v5.TranscribeService/StreamingRecognize',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/cobaltspeech.transcribe.v5.TranscribeService/StreamingRecognize',
             cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.StreamingRecognizeRequest.SerializeToString,
             cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.StreamingRecognizeResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CompileContext(request,
@@ -178,8 +208,18 @@ class TranscribeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.transcribe.v5.TranscribeService/CompileContext',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.transcribe.v5.TranscribeService/CompileContext',
             cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.CompileContextRequest.SerializeToString,
             cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2.CompileContextResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

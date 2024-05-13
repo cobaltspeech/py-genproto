@@ -19,27 +19,27 @@ class VoiceBioServiceStub(object):
                 '/cobaltspeech.voicebio.v1.VoiceBioService/Version',
                 request_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VersionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VersionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/cobaltspeech.voicebio.v1.VoiceBioService/ListModels',
                 request_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamingEnroll = channel.stream_unary(
                 '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingEnroll',
                 request_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingEnrollRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingEnrollResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamingVerify = channel.stream_unary(
                 '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingVerify',
                 request_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingVerifyRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingVerifyResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamingIdentify = channel.stream_unary(
                 '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingIdentify',
                 request_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class VoiceBioServiceServicer(object):
@@ -142,11 +142,21 @@ class VoiceBioService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.voicebio.v1.VoiceBioService/Version',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.voicebio.v1.VoiceBioService/Version',
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VersionRequest.SerializeToString,
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -159,11 +169,21 @@ class VoiceBioService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.voicebio.v1.VoiceBioService/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.voicebio.v1.VoiceBioService/ListModels',
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamingEnroll(request_iterator,
@@ -176,11 +196,21 @@ class VoiceBioService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingEnroll',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingEnroll',
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingEnrollRequest.SerializeToString,
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingEnrollResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamingVerify(request_iterator,
@@ -193,11 +223,21 @@ class VoiceBioService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingVerify',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingVerify',
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingVerifyRequest.SerializeToString,
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingVerifyResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamingIdentify(request_iterator,
@@ -210,8 +250,18 @@ class VoiceBioService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingIdentify',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingIdentify',
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyRequest.SerializeToString,
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

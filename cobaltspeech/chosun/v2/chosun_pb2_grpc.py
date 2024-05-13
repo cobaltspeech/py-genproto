@@ -19,17 +19,17 @@ class ChosunServiceStub(object):
                 '/cobaltspeech.chosun.v2.ChosunService/Version',
                 request_serializer=cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.VersionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.VersionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/cobaltspeech.chosun.v2.ChosunService/ListModels',
                 request_serializer=cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.Parse = channel.unary_unary(
                 '/cobaltspeech.chosun.v2.ChosunService/Parse',
                 request_serializer=cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.ParseRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.ParseResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class ChosunServiceServicer(object):
@@ -98,11 +98,21 @@ class ChosunService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.chosun.v2.ChosunService/Version',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.chosun.v2.ChosunService/Version',
             cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.VersionRequest.SerializeToString,
             cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.VersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -115,11 +125,21 @@ class ChosunService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.chosun.v2.ChosunService/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.chosun.v2.ChosunService/ListModels',
             cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Parse(request,
@@ -132,8 +152,18 @@ class ChosunService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.chosun.v2.ChosunService/Parse',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.chosun.v2.ChosunService/Parse',
             cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.ParseRequest.SerializeToString,
             cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2.ParseResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

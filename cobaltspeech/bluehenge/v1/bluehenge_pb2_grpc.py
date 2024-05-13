@@ -18,67 +18,67 @@ class BluehengeServiceStub(object):
                 '/cobaltspeech.bluehenge.v1.BluehengeService/Version',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.VersionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.VersionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/ListModels',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateSession = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/CreateSession',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.CreateSessionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.CreateSessionResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteSession = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/DeleteSession',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.DeleteSessionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.DeleteSessionResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateSession = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/UpdateSession',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.UpdateSessionRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.UpdateSessionResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamASR = channel.stream_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/StreamASR',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.StreamASRRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.StreamASRResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamTTS = channel.unary_stream(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/StreamTTS',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.StreamTTSRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.StreamTTSResponse.FromString,
-                )
+                _registered_method=True)
         self.Transcribe = channel.stream_stream(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/Transcribe',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.TranscribeRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.TranscribeResponse.FromString,
-                )
+                _registered_method=True)
         self.ListProcedures = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/ListProcedures',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.ListProceduresRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.ListProceduresResponse.FromString,
-                )
+                _registered_method=True)
         self.GetProcedures = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/GetProcedures',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetProceduresRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetProceduresResponse.FromString,
-                )
+                _registered_method=True)
         self.SaveNote = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/SaveNote',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.SaveNoteRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.SaveNoteResponse.FromString,
-                )
+                _registered_method=True)
         self.GetEntityImage = channel.unary_unary(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/GetEntityImage',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetEntityImageRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetEntityImageResponse.FromString,
-                )
+                _registered_method=True)
         self.GetImage = channel.unary_stream(
                 '/cobaltspeech.bluehenge.v1.BluehengeService/GetImage',
                 request_serializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetImageRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetImageResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class BluehengeServiceServicer(object):
@@ -296,11 +296,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/Version',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/Version',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.VersionRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.VersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -313,11 +323,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/ListModels',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.ListModelsRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateSession(request,
@@ -330,11 +350,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/CreateSession',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/CreateSession',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.CreateSessionRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.CreateSessionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteSession(request,
@@ -347,11 +377,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/DeleteSession',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/DeleteSession',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.DeleteSessionRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.DeleteSessionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateSession(request,
@@ -364,11 +404,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/UpdateSession',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/UpdateSession',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.UpdateSessionRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.UpdateSessionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamASR(request_iterator,
@@ -381,11 +431,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/cobaltspeech.bluehenge.v1.BluehengeService/StreamASR',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/StreamASR',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.StreamASRRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.StreamASRResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamTTS(request,
@@ -398,11 +458,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/StreamTTS',
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/StreamTTS',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.StreamTTSRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.StreamTTSResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Transcribe(request_iterator,
@@ -415,11 +485,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/cobaltspeech.bluehenge.v1.BluehengeService/Transcribe',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/Transcribe',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.TranscribeRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.TranscribeResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListProcedures(request,
@@ -432,11 +512,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/ListProcedures',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/ListProcedures',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.ListProceduresRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.ListProceduresResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetProcedures(request,
@@ -449,11 +539,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/GetProcedures',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/GetProcedures',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetProceduresRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetProceduresResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def SaveNote(request,
@@ -466,11 +566,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/SaveNote',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/SaveNote',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.SaveNoteRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.SaveNoteResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetEntityImage(request,
@@ -483,11 +593,21 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/GetEntityImage',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/GetEntityImage',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetEntityImageRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetEntityImageResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetImage(request,
@@ -500,8 +620,18 @@ class BluehengeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/cobaltspeech.bluehenge.v1.BluehengeService/GetImage',
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/cobaltspeech.bluehenge.v1.BluehengeService/GetImage',
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetImageRequest.SerializeToString,
             cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2.GetImageResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
