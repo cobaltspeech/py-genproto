@@ -12,7 +12,7 @@ setup(
     packages=find_packages(include=["cobaltspeech", "cobaltspeech.*"]),
     install_requires=[
         'protobuf==4.22.1',
-        'grpcio==1.51.3',
+        'grpcio==1.53.0',
         'google-api-python-client==2.81.0'
     ]
 )
