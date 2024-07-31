@@ -247,12 +247,14 @@ class StreamASRWithPartialsRequest(_message.Message):
     def __init__(self, token: _Optional[_Union[TokenData, _Mapping]] = ..., audio: _Optional[bytes] = ...) -> None: ...
 
 class StreamASRWithPartialsResponse(_message.Message):
-    __slots__ = ("partial_result", "asr_result")
+    __slots__ = ("partial_result", "asr_result", "wakeword_result")
     PARTIAL_RESULT_FIELD_NUMBER: _ClassVar[int]
     ASR_RESULT_FIELD_NUMBER: _ClassVar[int]
+    WAKEWORD_RESULT_FIELD_NUMBER: _ClassVar[int]
     partial_result: _cubic_pb2.RecognitionResult
     asr_result: ASRResult
-    def __init__(self, partial_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ..., asr_result: _Optional[_Union[ASRResult, _Mapping]] = ...) -> None: ...
+    wakeword_result: WakewordResult
+    def __init__(self, partial_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ..., asr_result: _Optional[_Union[ASRResult, _Mapping]] = ..., wakeword_result: _Optional[_Union[WakewordResult, _Mapping]] = ...) -> None: ...
 
 class ASRResult(_message.Message):
     __slots__ = ("text", "confidence", "timed_out", "cubic_result")
@@ -265,6 +267,12 @@ class ASRResult(_message.Message):
     timed_out: bool
     cubic_result: _cubic_pb2.RecognitionResult
     def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., timed_out: bool = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
+
+class WakewordResult(_message.Message):
+    __slots__ = ("timestamp_ms",)
+    TIMESTAMP_MS_FIELD_NUMBER: _ClassVar[int]
+    timestamp_ms: int
+    def __init__(self, timestamp_ms: _Optional[int] = ...) -> None: ...
 
 class TranscribeRequest(_message.Message):
     __slots__ = ("action", "audio")

@@ -45,20 +45,20 @@ class DiathekeServiceStub(object):
                 request_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRResponse.FromString,
                 _registered_method=True)
-        self.StreamTTS = channel.unary_stream(
-                '/cobaltspeech.diatheke.v3.DiathekeService/StreamTTS',
-                request_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSRequest.SerializeToString,
-                response_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSResponse.FromString,
+        self.StreamASRWithPartials = channel.stream_stream(
+                '/cobaltspeech.diatheke.v3.DiathekeService/StreamASRWithPartials',
+                request_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.FromString,
                 _registered_method=True)
         self.Transcribe = channel.stream_stream(
                 '/cobaltspeech.diatheke.v3.DiathekeService/Transcribe',
                 request_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeResponse.FromString,
                 _registered_method=True)
-        self.StreamASRWithPartials = channel.stream_stream(
-                '/cobaltspeech.diatheke.v3.DiathekeService/StreamASRWithPartials',
-                request_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.SerializeToString,
-                response_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.FromString,
+        self.StreamTTS = channel.unary_stream(
+                '/cobaltspeech.diatheke.v3.DiathekeService/StreamTTS',
+                request_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSResponse.FromString,
                 _registered_method=True)
 
 
@@ -124,11 +124,16 @@ class DiathekeServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def StreamTTS(self, request, context):
-        """Create a TTS stream to receive audio for the given reply.
-        The stream will close when TTS is finished. The client
-        may also close the stream early to cancel the speech
-        synthesis.
+    def StreamASRWithPartials(self, request_iterator, context):
+        """Performs bidirectional streaming speech recognition. Receive results while
+        sending audio. Each result will either be a partial ASR result, or a final
+        result. Partial results will be sent as soon as they are ready, and all
+        results will be sent, regardless of any wakeword configuration in the
+        session. A final result will be sent exactly once, and the stream will be
+        closed then. If a session has a wakeword enabled, the final result will
+        only be emitted if the required wakeword is present. The ASRResult in the
+        final message maybe used in the UpdateSession method for further dialog
+        processing.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -154,16 +159,11 @@ class DiathekeServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def StreamASRWithPartials(self, request_iterator, context):
-        """Performs bidirectional streaming speech recognition. Receive results while
-        sending audio. Each result will either be a partial ASR result, or a final
-        result. Partial results will be sent as soon as they are ready, and all
-        results will be sent, regardless of any wakeword configuration in the
-        session. A final result will be sent exactly once, and the stream will be
-        closed then. If a session has a wakeword enabled, the final result will
-        only be emitted if the required wakeword is present. The ASRResult in the
-        final message maybe used in the UpdateSession method for further dialog
-        processing.
+    def StreamTTS(self, request, context):
+        """Create a TTS stream to receive audio for the given reply.
+        The stream will close when TTS is finished. The client
+        may also close the stream early to cancel the speech
+        synthesis.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -202,25 +202,26 @@ def add_DiathekeServiceServicer_to_server(servicer, server):
                     request_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRRequest.FromString,
                     response_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRResponse.SerializeToString,
             ),
-            'StreamTTS': grpc.unary_stream_rpc_method_handler(
-                    servicer.StreamTTS,
-                    request_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSRequest.FromString,
-                    response_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSResponse.SerializeToString,
+            'StreamASRWithPartials': grpc.stream_stream_rpc_method_handler(
+                    servicer.StreamASRWithPartials,
+                    request_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.FromString,
+                    response_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.SerializeToString,
             ),
             'Transcribe': grpc.stream_stream_rpc_method_handler(
                     servicer.Transcribe,
                     request_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeRequest.FromString,
                     response_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.TranscribeResponse.SerializeToString,
             ),
-            'StreamASRWithPartials': grpc.stream_stream_rpc_method_handler(
-                    servicer.StreamASRWithPartials,
-                    request_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.FromString,
-                    response_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.SerializeToString,
+            'StreamTTS': grpc.unary_stream_rpc_method_handler(
+                    servicer.StreamTTS,
+                    request_deserializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSRequest.FromString,
+                    response_serializer=cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'cobaltspeech.diatheke.v3.DiathekeService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('cobaltspeech.diatheke.v3.DiathekeService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -391,7 +392,7 @@ class DiathekeService(object):
             _registered_method=True)
 
     @staticmethod
-    def StreamTTS(request,
+    def StreamASRWithPartials(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -401,12 +402,12 @@ class DiathekeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(
-            request,
+        return grpc.experimental.stream_stream(
+            request_iterator,
             target,
-            '/cobaltspeech.diatheke.v3.DiathekeService/StreamTTS',
-            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSRequest.SerializeToString,
-            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSResponse.FromString,
+            '/cobaltspeech.diatheke.v3.DiathekeService/StreamASRWithPartials',
+            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.SerializeToString,
+            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -445,7 +446,7 @@ class DiathekeService(object):
             _registered_method=True)
 
     @staticmethod
-    def StreamASRWithPartials(request_iterator,
+    def StreamTTS(request,
             target,
             options=(),
             channel_credentials=None,
@@ -455,12 +456,12 @@ class DiathekeService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(
-            request_iterator,
+        return grpc.experimental.unary_stream(
+            request,
             target,
-            '/cobaltspeech.diatheke.v3.DiathekeService/StreamASRWithPartials',
-            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsRequest.SerializeToString,
-            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamASRWithPartialsResponse.FromString,
+            '/cobaltspeech.diatheke.v3.DiathekeService/StreamTTS',
+            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSRequest.SerializeToString,
+            cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2.StreamTTSResponse.FromString,
             options,
             channel_credentials,
             insecure,
