@@ -1,3 +1,12 @@
 [build-system]
-requires = ["setuptools >= 40.6.0", "wheel"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "cobaltspeech"
+version = "1.0.0"
+authors = [{name = "Cobalt Speech and Language Inc."}]
+maintainers = [{email = "tech@cobaltspeech.com"}]
+description = "Auto-generated python clients for Cobalt's gRPC APIs."
+requires-python = ">=3.5.0"
+dependencies = ["google-api-python-client", "grpcio", "protobuf"]
