@@ -1,11 +1,51 @@
 from cobaltspeech.chosun.v2 import chosun_pb2 as _chosun_pb2
 from cobaltspeech.cubic.v5 import cubic_pb2 as _cubic_pb2
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class ByteOrder(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    BYTE_ORDER_UNSPECIFIED: _ClassVar[ByteOrder]
+    BYTE_ORDER_LITTLE_ENDIAN: _ClassVar[ByteOrder]
+    BYTE_ORDER_BIG_ENDIAN: _ClassVar[ByteOrder]
+
+class AudioEncoding(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    AUDIO_ENCODING_UNSPECIFIED: _ClassVar[AudioEncoding]
+    AUDIO_ENCODING_SIGNED: _ClassVar[AudioEncoding]
+    AUDIO_ENCODING_UNSIGNED: _ClassVar[AudioEncoding]
+    AUDIO_ENCODING_IEEE_FLOAT: _ClassVar[AudioEncoding]
+    AUDIO_ENCODING_ULAW: _ClassVar[AudioEncoding]
+    AUDIO_ENCODING_ALAW: _ClassVar[AudioEncoding]
+
+class AudioCodec(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    AUDIO_CODEC_UNSPECIFIED: _ClassVar[AudioCodec]
+    AUDIO_CODEC_RAW: _ClassVar[AudioCodec]
+    AUDIO_CODEC_WAV: _ClassVar[AudioCodec]
+    AUDIO_CODEC_MP3: _ClassVar[AudioCodec]
+    AUDIO_CODEC_FLAC: _ClassVar[AudioCodec]
+    AUDIO_CODEC_OGG_OPUS: _ClassVar[AudioCodec]
+BYTE_ORDER_UNSPECIFIED: ByteOrder
+BYTE_ORDER_LITTLE_ENDIAN: ByteOrder
+BYTE_ORDER_BIG_ENDIAN: ByteOrder
+AUDIO_ENCODING_UNSPECIFIED: AudioEncoding
+AUDIO_ENCODING_SIGNED: AudioEncoding
+AUDIO_ENCODING_UNSIGNED: AudioEncoding
+AUDIO_ENCODING_IEEE_FLOAT: AudioEncoding
+AUDIO_ENCODING_ULAW: AudioEncoding
+AUDIO_ENCODING_ALAW: AudioEncoding
+AUDIO_CODEC_UNSPECIFIED: AudioCodec
+AUDIO_CODEC_RAW: AudioCodec
+AUDIO_CODEC_WAV: AudioCodec
+AUDIO_CODEC_MP3: AudioCodec
+AUDIO_CODEC_FLAC: AudioCodec
+AUDIO_CODEC_OGG_OPUS: AudioCodec
 
 class VersionRequest(_message.Message):
     __slots__ = ()
@@ -34,14 +74,18 @@ class ListModelsResponse(_message.Message):
     def __init__(self, models: _Optional[_Iterable[_Union[ModelInfo, _Mapping]]] = ...) -> None: ...
 
 class CreateSessionRequest(_message.Message):
-    __slots__ = ("model_id", "wakeword", "metadata")
+    __slots__ = ("model_id", "wakeword", "metadata", "input_audio_format", "output_audio_format")
     MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     WAKEWORD_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
+    INPUT_AUDIO_FORMAT_FIELD_NUMBER: _ClassVar[int]
+    OUTPUT_AUDIO_FORMAT_FIELD_NUMBER: _ClassVar[int]
     model_id: str
     wakeword: str
     metadata: SessionMetadata
-    def __init__(self, model_id: _Optional[str] = ..., wakeword: _Optional[str] = ..., metadata: _Optional[_Union[SessionMetadata, _Mapping]] = ...) -> None: ...
+    input_audio_format: AudioFormat
+    output_audio_format: AudioFormat
+    def __init__(self, model_id: _Optional[str] = ..., wakeword: _Optional[str] = ..., metadata: _Optional[_Union[SessionMetadata, _Mapping]] = ..., input_audio_format: _Optional[_Union[AudioFormat, _Mapping]] = ..., output_audio_format: _Optional[_Union[AudioFormat, _Mapping]] = ...) -> None: ...
 
 class CreateSessionResponse(_message.Message):
     __slots__ = ("session_output",)
@@ -301,3 +345,19 @@ class SessionMetadata(_message.Message):
     custom_metadata: str
     storage_file_prefix: str
     def __init__(self, custom_metadata: _Optional[str] = ..., storage_file_prefix: _Optional[str] = ...) -> None: ...
+
+class AudioFormat(_message.Message):
+    __slots__ = ("sample_rate", "channels", "bit_depth", "codec", "encoding", "byte_order")
+    SAMPLE_RATE_FIELD_NUMBER: _ClassVar[int]
+    CHANNELS_FIELD_NUMBER: _ClassVar[int]
+    BIT_DEPTH_FIELD_NUMBER: _ClassVar[int]
+    CODEC_FIELD_NUMBER: _ClassVar[int]
+    ENCODING_FIELD_NUMBER: _ClassVar[int]
+    BYTE_ORDER_FIELD_NUMBER: _ClassVar[int]
+    sample_rate: int
+    channels: int
+    bit_depth: int
+    codec: AudioCodec
+    encoding: AudioEncoding
+    byte_order: ByteOrder
+    def __init__(self, sample_rate: _Optional[int] = ..., channels: _Optional[int] = ..., bit_depth: _Optional[int] = ..., codec: _Optional[_Union[AudioCodec, str]] = ..., encoding: _Optional[_Union[AudioEncoding, str]] = ..., byte_order: _Optional[_Union[ByteOrder, str]] = ...) -> None: ...
