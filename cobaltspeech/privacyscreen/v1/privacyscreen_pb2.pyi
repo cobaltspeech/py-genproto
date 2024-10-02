@@ -122,16 +122,18 @@ class CustomClass(_message.Message):
     def __init__(self, redaction_class: _Optional[str] = ..., pattern: _Optional[str] = ...) -> None: ...
 
 class RedactionConfig(_message.Message):
-    __slots__ = ("model_id", "redaction_classes", "disable_streaming", "custom_classes")
+    __slots__ = ("model_id", "redaction_classes", "disable_streaming", "custom_classes", "disabled_classes")
     MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     REDACTION_CLASSES_FIELD_NUMBER: _ClassVar[int]
     DISABLE_STREAMING_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_CLASSES_FIELD_NUMBER: _ClassVar[int]
+    DISABLED_CLASSES_FIELD_NUMBER: _ClassVar[int]
     model_id: str
     redaction_classes: _containers.RepeatedScalarFieldContainer[str]
     disable_streaming: bool
     custom_classes: _containers.RepeatedCompositeFieldContainer[CustomClass]
-    def __init__(self, model_id: _Optional[str] = ..., redaction_classes: _Optional[_Iterable[str]] = ..., disable_streaming: bool = ..., custom_classes: _Optional[_Iterable[_Union[CustomClass, _Mapping]]] = ...) -> None: ...
+    disabled_classes: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, model_id: _Optional[str] = ..., redaction_classes: _Optional[_Iterable[str]] = ..., disable_streaming: bool = ..., custom_classes: _Optional[_Iterable[_Union[CustomClass, _Mapping]]] = ..., disabled_classes: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Transcript(_message.Message):
     __slots__ = ("utterances",)
