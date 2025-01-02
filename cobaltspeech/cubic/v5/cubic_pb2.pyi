@@ -132,10 +132,12 @@ class AudioFormatRAW(_message.Message):
     def __init__(self, encoding: _Optional[_Union[AudioEncoding, str]] = ..., bit_depth: _Optional[int] = ..., byte_order: _Optional[_Union[ByteOrder, str]] = ..., sample_rate: _Optional[int] = ..., channels: _Optional[int] = ...) -> None: ...
 
 class RecognitionMetadata(_message.Message):
-    __slots__ = ("custom_metadata",)
+    __slots__ = ("custom_metadata", "custom_id")
     CUSTOM_METADATA_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_ID_FIELD_NUMBER: _ClassVar[int]
     custom_metadata: str
-    def __init__(self, custom_metadata: _Optional[str] = ...) -> None: ...
+    custom_id: str
+    def __init__(self, custom_metadata: _Optional[str] = ..., custom_id: _Optional[str] = ...) -> None: ...
 
 class RecognitionContext(_message.Message):
     __slots__ = ("compiled",)
