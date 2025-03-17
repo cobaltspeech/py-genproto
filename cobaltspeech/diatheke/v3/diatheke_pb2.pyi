@@ -1,10 +1,12 @@
 from cobaltspeech.chosun.v2 import chosun_pb2 as _chosun_pb2
 from cobaltspeech.cubic.v5 import cubic_pb2 as _cubic_pb2
+from cobaltspeech.voicegen.v1 import voicegen_pb2 as _voicegen_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -116,12 +118,14 @@ class UpdateSessionResponse(_message.Message):
     def __init__(self, session_output: _Optional[_Union[SessionOutput, _Mapping]] = ...) -> None: ...
 
 class StreamTTSRequest(_message.Message):
-    __slots__ = ("reply_action", "token")
+    __slots__ = ("reply_action", "token", "synthesis_config")
     REPLY_ACTION_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
+    SYNTHESIS_CONFIG_FIELD_NUMBER: _ClassVar[int]
     reply_action: ReplyAction
     token: TokenData
-    def __init__(self, reply_action: _Optional[_Union[ReplyAction, _Mapping]] = ..., token: _Optional[_Union[TokenData, _Mapping]] = ...) -> None: ...
+    synthesis_config: _voicegen_pb2.SynthesisConfig
+    def __init__(self, reply_action: _Optional[_Union[ReplyAction, _Mapping]] = ..., token: _Optional[_Union[TokenData, _Mapping]] = ..., synthesis_config: _Optional[_Union[_voicegen_pb2.SynthesisConfig, _Mapping]] = ...) -> None: ...
 
 class StreamTTSResponse(_message.Message):
     __slots__ = ("audio",)
@@ -130,18 +134,20 @@ class StreamTTSResponse(_message.Message):
     def __init__(self, audio: _Optional[bytes] = ...) -> None: ...
 
 class ModelInfo(_message.Message):
-    __slots__ = ("id", "name", "language", "asr_sample_rate", "tts_sample_rate")
+    __slots__ = ("id", "name", "language", "asr_sample_rate", "tts_sample_rate", "tts_model_attributes")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     LANGUAGE_FIELD_NUMBER: _ClassVar[int]
     ASR_SAMPLE_RATE_FIELD_NUMBER: _ClassVar[int]
     TTS_SAMPLE_RATE_FIELD_NUMBER: _ClassVar[int]
+    TTS_MODEL_ATTRIBUTES_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     language: str
     asr_sample_rate: int
     tts_sample_rate: int
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., language: _Optional[str] = ..., asr_sample_rate: _Optional[int] = ..., tts_sample_rate: _Optional[int] = ...) -> None: ...
+    tts_model_attributes: _containers.RepeatedCompositeFieldContainer[_voicegen_pb2.ModelAttributes]
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., language: _Optional[str] = ..., asr_sample_rate: _Optional[int] = ..., tts_sample_rate: _Optional[int] = ..., tts_model_attributes: _Optional[_Iterable[_Union[_voicegen_pb2.ModelAttributes, _Mapping]]] = ...) -> None: ...
 
 class SessionInput(_message.Message):
     __slots__ = ("token", "text", "asr", "cmd", "story")
