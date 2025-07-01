@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
 from google.protobuf.internal import containers as _containers
@@ -105,7 +107,7 @@ class RecognitionConfig(_message.Message):
     audio_channels: _containers.RepeatedScalarFieldContainer[int]
     metadata: RecognitionMetadata
     context: RecognitionContext
-    def __init__(self, model_id: _Optional[str] = ..., audio_encoding: _Optional[_Union[RecognitionConfig.Encoding, str]] = ..., idle_timeout: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., enable_word_time_offsets: bool = ..., enable_word_confidence: bool = ..., enable_raw_transcript: bool = ..., enable_confusion_network: bool = ..., audio_channels: _Optional[_Iterable[int]] = ..., metadata: _Optional[_Union[RecognitionMetadata, _Mapping]] = ..., context: _Optional[_Union[RecognitionContext, _Mapping]] = ...) -> None: ...
+    def __init__(self, model_id: _Optional[str] = ..., audio_encoding: _Optional[_Union[RecognitionConfig.Encoding, str]] = ..., idle_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., enable_word_time_offsets: bool = ..., enable_word_confidence: bool = ..., enable_raw_transcript: bool = ..., enable_confusion_network: bool = ..., audio_channels: _Optional[_Iterable[int]] = ..., metadata: _Optional[_Union[RecognitionMetadata, _Mapping]] = ..., context: _Optional[_Union[RecognitionContext, _Mapping]] = ...) -> None: ...
 
 class RecognitionMetadata(_message.Message):
     __slots__ = ("custom_metadata",)
@@ -193,7 +195,7 @@ class RecognitionAlternative(_message.Message):
     raw_words: _containers.RepeatedCompositeFieldContainer[WordInfo]
     start_time: _duration_pb2.Duration
     duration: _duration_pb2.Duration
-    def __init__(self, transcript: _Optional[str] = ..., raw_transcript: _Optional[str] = ..., confidence: _Optional[float] = ..., words: _Optional[_Iterable[_Union[WordInfo, _Mapping]]] = ..., raw_words: _Optional[_Iterable[_Union[WordInfo, _Mapping]]] = ..., start_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(self, transcript: _Optional[str] = ..., raw_transcript: _Optional[str] = ..., confidence: _Optional[float] = ..., words: _Optional[_Iterable[_Union[WordInfo, _Mapping]]] = ..., raw_words: _Optional[_Iterable[_Union[WordInfo, _Mapping]]] = ..., start_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...
 
 class WordInfo(_message.Message):
     __slots__ = ("word", "confidence", "start_time", "duration")
@@ -205,7 +207,7 @@ class WordInfo(_message.Message):
     confidence: float
     start_time: _duration_pb2.Duration
     duration: _duration_pb2.Duration
-    def __init__(self, word: _Optional[str] = ..., confidence: _Optional[float] = ..., start_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(self, word: _Optional[str] = ..., confidence: _Optional[float] = ..., start_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...
 
 class RecognitionConfusionNetwork(_message.Message):
     __slots__ = ("links",)
@@ -221,7 +223,7 @@ class ConfusionNetworkLink(_message.Message):
     start_time: _duration_pb2.Duration
     duration: _duration_pb2.Duration
     arcs: _containers.RepeatedCompositeFieldContainer[ConfusionNetworkArc]
-    def __init__(self, start_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., arcs: _Optional[_Iterable[_Union[ConfusionNetworkArc, _Mapping]]] = ...) -> None: ...
+    def __init__(self, start_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., arcs: _Optional[_Iterable[_Union[ConfusionNetworkArc, _Mapping]]] = ...) -> None: ...
 
 class ConfusionNetworkArc(_message.Message):
     __slots__ = ("word", "confidence")
