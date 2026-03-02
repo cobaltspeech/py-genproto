@@ -96,7 +96,7 @@ class EnrollmentStatus(_message.Message):
     ADDITIONAL_AUDIO_REQUIRED_SECONDS_FIELD_NUMBER: _ClassVar[int]
     enrollment_complete: bool
     additional_audio_required_seconds: int
-    def __init__(self, enrollment_complete: bool = ..., additional_audio_required_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(self, enrollment_complete: _Optional[bool] = ..., additional_audio_required_seconds: _Optional[int] = ...) -> None: ...
 
 class StreamingVerifyRequest(_message.Message):
     __slots__ = ("config", "audio")
@@ -118,7 +118,7 @@ class VoiceprintComparisonResult(_message.Message):
     SIMILARITY_SCORE_FIELD_NUMBER: _ClassVar[int]
     is_match: bool
     similarity_score: float
-    def __init__(self, is_match: bool = ..., similarity_score: _Optional[float] = ...) -> None: ...
+    def __init__(self, is_match: _Optional[bool] = ..., similarity_score: _Optional[float] = ...) -> None: ...
 
 class VerificationConfig(_message.Message):
     __slots__ = ("model_id", "audio_format", "voiceprint")
@@ -156,11 +156,49 @@ class IdentificationConfig(_message.Message):
     voiceprints: _containers.RepeatedCompositeFieldContainer[Voiceprint]
     def __init__(self, model_id: _Optional[str] = ..., audio_format: _Optional[_Union[AudioFormat, _Mapping]] = ..., voiceprints: _Optional[_Iterable[_Union[Voiceprint, _Mapping]]] = ...) -> None: ...
 
+class VectorizeVoiceprintsRequest(_message.Message):
+    __slots__ = ("model_id", "voiceprints")
+    MODEL_ID_FIELD_NUMBER: _ClassVar[int]
+    VOICEPRINTS_FIELD_NUMBER: _ClassVar[int]
+    model_id: str
+    voiceprints: _containers.RepeatedCompositeFieldContainer[Voiceprint]
+    def __init__(self, model_id: _Optional[str] = ..., voiceprints: _Optional[_Iterable[_Union[Voiceprint, _Mapping]]] = ...) -> None: ...
+
+class VectorizeVoiceprintsResponse(_message.Message):
+    __slots__ = ("voiceprints",)
+    VOICEPRINTS_FIELD_NUMBER: _ClassVar[int]
+    voiceprints: _containers.RepeatedCompositeFieldContainer[VectorVoiceprint]
+    def __init__(self, voiceprints: _Optional[_Iterable[_Union[VectorVoiceprint, _Mapping]]] = ...) -> None: ...
+
+class CompareVoiceprintsRequest(_message.Message):
+    __slots__ = ("model_id", "target_voiceprint", "reference_voiceprints")
+    MODEL_ID_FIELD_NUMBER: _ClassVar[int]
+    TARGET_VOICEPRINT_FIELD_NUMBER: _ClassVar[int]
+    REFERENCE_VOICEPRINTS_FIELD_NUMBER: _ClassVar[int]
+    model_id: str
+    target_voiceprint: Voiceprint
+    reference_voiceprints: _containers.RepeatedCompositeFieldContainer[Voiceprint]
+    def __init__(self, model_id: _Optional[str] = ..., target_voiceprint: _Optional[_Union[Voiceprint, _Mapping]] = ..., reference_voiceprints: _Optional[_Iterable[_Union[Voiceprint, _Mapping]]] = ...) -> None: ...
+
+class CompareVoiceprintsResponse(_message.Message):
+    __slots__ = ("best_match_index", "voiceprint_comparison_results")
+    BEST_MATCH_INDEX_FIELD_NUMBER: _ClassVar[int]
+    VOICEPRINT_COMPARISON_RESULTS_FIELD_NUMBER: _ClassVar[int]
+    best_match_index: int
+    voiceprint_comparison_results: _containers.RepeatedCompositeFieldContainer[VoiceprintComparisonResult]
+    def __init__(self, best_match_index: _Optional[int] = ..., voiceprint_comparison_results: _Optional[_Iterable[_Union[VoiceprintComparisonResult, _Mapping]]] = ...) -> None: ...
+
 class Voiceprint(_message.Message):
     __slots__ = ("data",)
     DATA_FIELD_NUMBER: _ClassVar[int]
     data: str
     def __init__(self, data: _Optional[str] = ...) -> None: ...
+
+class VectorVoiceprint(_message.Message):
+    __slots__ = ("data",)
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    data: _containers.RepeatedScalarFieldContainer[float]
+    def __init__(self, data: _Optional[_Iterable[float]] = ...) -> None: ...
 
 class AudioFormat(_message.Message):
     __slots__ = ("audio_format_raw", "audio_format_headered")

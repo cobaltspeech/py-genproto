@@ -116,7 +116,7 @@ class RecognitionConfig(_message.Message):
     enable_confusion_network: bool
     metadata: RecognitionMetadata
     context: RecognitionContext
-    def __init__(self, model_id: _Optional[str] = ..., audio_format_raw: _Optional[_Union[AudioFormatRAW, _Mapping]] = ..., audio_format_headered: _Optional[_Union[AudioFormatHeadered, str]] = ..., selected_audio_channels: _Optional[_Iterable[int]] = ..., audio_time_offset_ms: _Optional[int] = ..., enable_word_details: bool = ..., enable_confusion_network: bool = ..., metadata: _Optional[_Union[RecognitionMetadata, _Mapping]] = ..., context: _Optional[_Union[RecognitionContext, _Mapping]] = ...) -> None: ...
+    def __init__(self, model_id: _Optional[str] = ..., audio_format_raw: _Optional[_Union[AudioFormatRAW, _Mapping]] = ..., audio_format_headered: _Optional[_Union[AudioFormatHeadered, str]] = ..., selected_audio_channels: _Optional[_Iterable[int]] = ..., audio_time_offset_ms: _Optional[int] = ..., enable_word_details: _Optional[bool] = ..., enable_confusion_network: _Optional[bool] = ..., metadata: _Optional[_Union[RecognitionMetadata, _Mapping]] = ..., context: _Optional[_Union[RecognitionContext, _Mapping]] = ...) -> None: ...
 
 class AudioFormatRAW(_message.Message):
     __slots__ = ("encoding", "bit_depth", "byte_order", "sample_rate", "channels")
@@ -190,7 +190,7 @@ class ContextInfo(_message.Message):
     ALLOWED_CONTEXT_TOKENS_FIELD_NUMBER: _ClassVar[int]
     supports_context: bool
     allowed_context_tokens: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, supports_context: bool = ..., allowed_context_tokens: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, supports_context: _Optional[bool] = ..., allowed_context_tokens: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class RecognitionResult(_message.Message):
     __slots__ = ("alternatives", "is_partial", "cnet", "audio_channel")
@@ -202,7 +202,7 @@ class RecognitionResult(_message.Message):
     is_partial: bool
     cnet: RecognitionConfusionNetwork
     audio_channel: int
-    def __init__(self, alternatives: _Optional[_Iterable[_Union[RecognitionAlternative, _Mapping]]] = ..., is_partial: bool = ..., cnet: _Optional[_Union[RecognitionConfusionNetwork, _Mapping]] = ..., audio_channel: _Optional[int] = ...) -> None: ...
+    def __init__(self, alternatives: _Optional[_Iterable[_Union[RecognitionAlternative, _Mapping]]] = ..., is_partial: _Optional[bool] = ..., cnet: _Optional[_Union[RecognitionConfusionNetwork, _Mapping]] = ..., audio_channel: _Optional[int] = ...) -> None: ...
 
 class RecognitionError(_message.Message):
     __slots__ = ("message",)

@@ -112,7 +112,7 @@ class TranscribeAndRedactConfig(_message.Message):
     ENABLE_UNREDACTED_TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
     redaction_config: RedactionConfig
     enable_unredacted_transcript: bool
-    def __init__(self, redaction_config: _Optional[_Union[RedactionConfig, _Mapping]] = ..., enable_unredacted_transcript: bool = ...) -> None: ...
+    def __init__(self, redaction_config: _Optional[_Union[RedactionConfig, _Mapping]] = ..., enable_unredacted_transcript: _Optional[bool] = ...) -> None: ...
 
 class CustomClass(_message.Message):
     __slots__ = ("redaction_class", "pattern")
@@ -136,7 +136,7 @@ class RedactionConfig(_message.Message):
     custom_classes: _containers.RepeatedCompositeFieldContainer[CustomClass]
     custom_unredacted_classes: _containers.RepeatedCompositeFieldContainer[CustomClass]
     disabled_classes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, model_id: _Optional[str] = ..., redaction_classes: _Optional[_Iterable[str]] = ..., disable_streaming: bool = ..., custom_classes: _Optional[_Iterable[_Union[CustomClass, _Mapping]]] = ..., custom_unredacted_classes: _Optional[_Iterable[_Union[CustomClass, _Mapping]]] = ..., disabled_classes: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, model_id: _Optional[str] = ..., redaction_classes: _Optional[_Iterable[str]] = ..., disable_streaming: _Optional[bool] = ..., custom_classes: _Optional[_Iterable[_Union[CustomClass, _Mapping]]] = ..., custom_unredacted_classes: _Optional[_Iterable[_Union[CustomClass, _Mapping]]] = ..., disabled_classes: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Transcript(_message.Message):
     __slots__ = ("utterances",)
@@ -182,7 +182,7 @@ class Word(_message.Message):
     is_redacted: bool
     redaction_class: str
     redaction_confidence: float
-    def __init__(self, text: _Optional[str] = ..., asr_confidence: _Optional[float] = ..., start_time_ms: _Optional[int] = ..., duration_ms: _Optional[int] = ..., is_redacted: bool = ..., redaction_class: _Optional[str] = ..., redaction_confidence: _Optional[float] = ...) -> None: ...
+    def __init__(self, text: _Optional[str] = ..., asr_confidence: _Optional[float] = ..., start_time_ms: _Optional[int] = ..., duration_ms: _Optional[int] = ..., is_redacted: _Optional[bool] = ..., redaction_class: _Optional[str] = ..., redaction_confidence: _Optional[float] = ...) -> None: ...
 
 class RedactedToken(_message.Message):
     __slots__ = ("original_text", "original_offset", "original_length", "redaction_class", "redaction_confidence")

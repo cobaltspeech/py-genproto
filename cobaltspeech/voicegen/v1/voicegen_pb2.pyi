@@ -115,7 +115,7 @@ class ModelFeatures(_message.Message):
     VARIATION_SCALE_FIELD_NUMBER: _ClassVar[int]
     speech_rate: bool
     variation_scale: bool
-    def __init__(self, speech_rate: bool = ..., variation_scale: bool = ...) -> None: ...
+    def __init__(self, speech_rate: _Optional[bool] = ..., variation_scale: _Optional[bool] = ...) -> None: ...
 
 class SpeakerInfo(_message.Message):
     __slots__ = ("id", "name", "description", "attributes")

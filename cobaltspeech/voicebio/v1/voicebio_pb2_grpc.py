@@ -40,6 +40,16 @@ class VoiceBioServiceStub(object):
                 request_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyRequest.SerializeToString,
                 response_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyResponse.FromString,
                 _registered_method=True)
+        self.VectorizeVoiceprints = channel.unary_unary(
+                '/cobaltspeech.voicebio.v1.VoiceBioService/VectorizeVoiceprints',
+                request_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VectorizeVoiceprintsRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VectorizeVoiceprintsResponse.FromString,
+                _registered_method=True)
+        self.CompareVoiceprints = channel.unary_unary(
+                '/cobaltspeech.voicebio.v1.VoiceBioService/CompareVoiceprints',
+                request_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.CompareVoiceprintsRequest.SerializeToString,
+                response_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.CompareVoiceprintsResponse.FromString,
+                _registered_method=True)
 
 
 class VoiceBioServiceServicer(object):
@@ -87,6 +97,37 @@ class VoiceBioServiceServicer(object):
     def StreamingIdentify(self, request_iterator, context):
         """Compares audio data against the provided list of voiceprints and identifies
         which (or none) of the voiceprints is a match for the given audio.
+
+        If you have a large list of voiceprints that you want to compare against in
+        batches, and you want to avoid sending audio data for each comparison, you
+        can use the `CompareVoiceprints` method instead, which operates on
+        pre-extracted voiceprints without requiring any audio data. You would first
+        need to extract the voiceprint from the audio using the `StreamingEnroll`
+        method, and then use that voiceprint in the `CompareVoiceprints` method as
+        the target voiceprint.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def VectorizeVoiceprints(self, request, context):
+        """Converts the given voiceprints into numerical vector representations that
+        can be used for various downstream tasks such as clustering, visualization,
+        or as input features for other machine learning models. The specific format
+        and dimensionality of these vectors may vary depending on the model used.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CompareVoiceprints(self, request, context):
+        """Compares pre-extracted voiceprints and returns similarity scores and match
+        results without needing to send audio data. This is useful in cases where
+        the user wants to compare a given voiceprint against a large number of
+        other voiceprints, and sending audio data for each comparison would be
+        inefficient. The client can enroll the voiceprint once using the
+        `StreamingEnroll` method, and then use this method to compare it against a
+        large number of other voiceprints in batches.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -119,6 +160,16 @@ def add_VoiceBioServiceServicer_to_server(servicer, server):
                     servicer.StreamingIdentify,
                     request_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyRequest.FromString,
                     response_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyResponse.SerializeToString,
+            ),
+            'VectorizeVoiceprints': grpc.unary_unary_rpc_method_handler(
+                    servicer.VectorizeVoiceprints,
+                    request_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VectorizeVoiceprintsRequest.FromString,
+                    response_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VectorizeVoiceprintsResponse.SerializeToString,
+            ),
+            'CompareVoiceprints': grpc.unary_unary_rpc_method_handler(
+                    servicer.CompareVoiceprints,
+                    request_deserializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.CompareVoiceprintsRequest.FromString,
+                    response_serializer=cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.CompareVoiceprintsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -257,6 +308,60 @@ class VoiceBioService(object):
             '/cobaltspeech.voicebio.v1.VoiceBioService/StreamingIdentify',
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyRequest.SerializeToString,
             cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.StreamingIdentifyResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def VectorizeVoiceprints(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.voicebio.v1.VoiceBioService/VectorizeVoiceprints',
+            cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VectorizeVoiceprintsRequest.SerializeToString,
+            cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.VectorizeVoiceprintsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CompareVoiceprints(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/cobaltspeech.voicebio.v1.VoiceBioService/CompareVoiceprints',
+            cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.CompareVoiceprintsRequest.SerializeToString,
+            cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2.CompareVoiceprintsResponse.FromString,
             options,
             channel_credentials,
             insecure,

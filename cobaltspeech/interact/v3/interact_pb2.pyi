@@ -237,7 +237,7 @@ class WaitForUserAction(_message.Message):
     IMMEDIATE_FIELD_NUMBER: _ClassVar[int]
     requires_wake_word: bool
     immediate: bool
-    def __init__(self, requires_wake_word: bool = ..., immediate: bool = ...) -> None: ...
+    def __init__(self, requires_wake_word: _Optional[bool] = ..., immediate: _Optional[bool] = ...) -> None: ...
 
 class CommandAction(_message.Message):
     __slots__ = ("id", "input_parameters", "nlu_result")
@@ -316,7 +316,7 @@ class ASRResult(_message.Message):
     confidence: float
     timed_out: bool
     cubic_result: _cubic_pb2.RecognitionResult
-    def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., timed_out: bool = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
+    def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., timed_out: _Optional[bool] = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
 
 class WakewordResult(_message.Message):
     __slots__ = ("timestamp_ms",)
@@ -342,7 +342,7 @@ class TranscribeResponse(_message.Message):
     confidence: float
     is_partial: bool
     cubic_result: _cubic_pb2.RecognitionResult
-    def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., is_partial: bool = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
+    def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., is_partial: _Optional[bool] = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
 
 class SessionMetadata(_message.Message):
     __slots__ = ("custom_metadata", "storage_file_prefix")
