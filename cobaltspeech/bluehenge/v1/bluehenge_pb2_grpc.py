@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.bluehenge.v1 import bluehenge_pb2 as cobaltspeech_dot_bluehenge_dot_v1_dot_bluehenge__pb2
 
 
-class BluehengeServiceStub(object):
+class BluehengeServiceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -81,7 +81,7 @@ class BluehengeServiceStub(object):
                 _registered_method=True)
 
 
-class BluehengeServiceServicer(object):
+class BluehengeServiceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def Version(self, request, context):
@@ -283,7 +283,7 @@ def add_BluehengeServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class BluehengeService(object):
+class BluehengeService:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

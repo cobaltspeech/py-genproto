@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.diatheke.v3 import diatheke_pb2 as cobaltspeech_dot_diatheke_dot_v3_dot_diatheke__pb2
 
 
-class DiathekeServiceStub(object):
+class DiathekeServiceStub:
     """Service that implements the Cobalt Diatheke Dialog Management API.
     """
 
@@ -62,7 +62,7 @@ class DiathekeServiceStub(object):
                 _registered_method=True)
 
 
-class DiathekeServiceServicer(object):
+class DiathekeServiceServicer:
     """Service that implements the Cobalt Diatheke Dialog Management API.
     """
 
@@ -225,7 +225,7 @@ def add_DiathekeServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class DiathekeService(object):
+class DiathekeService:
     """Service that implements the Cobalt Diatheke Dialog Management API.
     """
 

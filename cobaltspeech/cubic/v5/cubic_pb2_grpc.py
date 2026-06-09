@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.cubic.v5 import cubic_pb2 as cobaltspeech_dot_cubic_dot_v5_dot_cubic__pb2
 
 
-class CubicServiceStub(object):
+class CubicServiceStub:
     """Service that implements the Cobalt Cubic Speech Recognition API.
     """
 
@@ -37,7 +37,7 @@ class CubicServiceStub(object):
                 _registered_method=True)
 
 
-class CubicServiceServicer(object):
+class CubicServiceServicer:
     """Service that implements the Cobalt Cubic Speech Recognition API.
     """
 
@@ -113,7 +113,7 @@ def add_CubicServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class CubicService(object):
+class CubicService:
     """Service that implements the Cobalt Cubic Speech Recognition API.
     """
 

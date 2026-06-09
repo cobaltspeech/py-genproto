@@ -6,7 +6,7 @@ from cobaltspeech.cubic.v1 import cubic_pb2 as cobaltspeech_dot_cubic_dot_v1_dot
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-class CubicStub(object):
+class CubicStub:
     """Service that implements the Cobalt Cubic Speech Recognition API
     """
 
@@ -43,7 +43,7 @@ class CubicStub(object):
                 _registered_method=True)
 
 
-class CubicServicer(object):
+class CubicServicer:
     """Service that implements the Cobalt Cubic Speech Recognition API
     """
 
@@ -135,7 +135,7 @@ def add_CubicServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Cubic(object):
+class Cubic:
     """Service that implements the Cobalt Cubic Speech Recognition API
     """
 

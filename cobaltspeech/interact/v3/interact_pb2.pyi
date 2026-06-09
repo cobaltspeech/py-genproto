@@ -257,12 +257,14 @@ class CommandAction(_message.Message):
     def __init__(self, id: _Optional[str] = ..., input_parameters: _Optional[_Mapping[str, str]] = ..., nlu_result: _Optional[_Union[_chosun_pb2.ParseResponse, _Mapping]] = ...) -> None: ...
 
 class ReplyAction(_message.Message):
-    __slots__ = ("text", "luna_model")
+    __slots__ = ("text", "luna_model", "reply_id")
     TEXT_FIELD_NUMBER: _ClassVar[int]
     LUNA_MODEL_FIELD_NUMBER: _ClassVar[int]
+    REPLY_ID_FIELD_NUMBER: _ClassVar[int]
     text: str
     luna_model: str
-    def __init__(self, text: _Optional[str] = ..., luna_model: _Optional[str] = ...) -> None: ...
+    reply_id: str
+    def __init__(self, text: _Optional[str] = ..., luna_model: _Optional[str] = ..., reply_id: _Optional[str] = ...) -> None: ...
 
 class TranscribeAction(_message.Message):
     __slots__ = ("id", "cubic_model_id", "diatheke_model_id")

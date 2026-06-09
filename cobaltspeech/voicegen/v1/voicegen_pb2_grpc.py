@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.voicegen.v1 import voicegen_pb2 as cobaltspeech_dot_voicegen_dot_v1_dot_voicegen__pb2
 
 
-class VoiceGenServiceStub(object):
+class VoiceGenServiceStub:
     """Service that implements the Cobalt VoiceGen API.
     """
 
@@ -32,7 +32,7 @@ class VoiceGenServiceStub(object):
                 _registered_method=True)
 
 
-class VoiceGenServiceServicer(object):
+class VoiceGenServiceServicer:
     """Service that implements the Cobalt VoiceGen API.
     """
 
@@ -85,7 +85,7 @@ def add_VoiceGenServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class VoiceGenService(object):
+class VoiceGenService:
     """Service that implements the Cobalt VoiceGen API.
     """
 

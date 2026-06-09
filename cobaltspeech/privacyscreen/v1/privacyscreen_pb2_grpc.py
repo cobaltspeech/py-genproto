@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.privacyscreen.v1 import privacyscreen_pb2 as cobaltspeech_dot_privacyscreen_dot_v1_dot_privacyscreen__pb2
 
 
-class PrivacyScreenServiceStub(object):
+class PrivacyScreenServiceStub:
     """Service that implements the Cobalt Privacy Screen API.
     """
 
@@ -47,7 +47,7 @@ class PrivacyScreenServiceStub(object):
                 _registered_method=True)
 
 
-class PrivacyScreenServiceServicer(object):
+class PrivacyScreenServiceServicer:
     """Service that implements the Cobalt Privacy Screen API.
     """
 
@@ -139,7 +139,7 @@ def add_PrivacyScreenServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class PrivacyScreenService(object):
+class PrivacyScreenService:
     """Service that implements the Cobalt Privacy Screen API.
     """
 

@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.transcribe.v5 import transcribe_pb2 as cobaltspeech_dot_transcribe_dot_v5_dot_transcribe__pb2
 
 
-class TranscribeServiceStub(object):
+class TranscribeServiceStub:
     """Service that implements the Cobalt Transcribe Speech Recognition API.
     """
 
@@ -37,7 +37,7 @@ class TranscribeServiceStub(object):
                 _registered_method=True)
 
 
-class TranscribeServiceServicer(object):
+class TranscribeServiceServicer:
     """Service that implements the Cobalt Transcribe Speech Recognition API.
     """
 
@@ -113,7 +113,7 @@ def add_TranscribeServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TranscribeService(object):
+class TranscribeService:
     """Service that implements the Cobalt Transcribe Speech Recognition API.
     """
 

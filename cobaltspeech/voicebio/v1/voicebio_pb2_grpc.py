@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.voicebio.v1 import voicebio_pb2 as cobaltspeech_dot_voicebio_dot_v1_dot_voicebio__pb2
 
 
-class VoiceBioServiceStub(object):
+class VoiceBioServiceStub:
     """Service that implements the Cobalt VoiceBio API.
     """
 
@@ -52,7 +52,7 @@ class VoiceBioServiceStub(object):
                 _registered_method=True)
 
 
-class VoiceBioServiceServicer(object):
+class VoiceBioServiceServicer:
     """Service that implements the Cobalt VoiceBio API.
     """
 
@@ -179,7 +179,7 @@ def add_VoiceBioServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class VoiceBioService(object):
+class VoiceBioService:
     """Service that implements the Cobalt VoiceBio API.
     """
 

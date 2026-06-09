@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.bluehenge.v2 import bluehenge_pb2 as cobaltspeech_dot_bluehenge_dot_v2_dot_bluehenge__pb2
 
 
-class BluehengeServiceStub(object):
+class BluehengeServiceStub:
     """Bluehenge is designed to help with maintainance and repair tasks.
     When paired with other cobalt offerings, it can provide a hands-free virtual assistant for technicians.
 
@@ -128,7 +128,7 @@ class BluehengeServiceStub(object):
                 _registered_method=True)
 
 
-class BluehengeServiceServicer(object):
+class BluehengeServiceServicer:
     """Bluehenge is designed to help with maintainance and repair tasks.
     When paired with other cobalt offerings, it can provide a hands-free virtual assistant for technicians.
 
@@ -436,7 +436,7 @@ def add_BluehengeServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class BluehengeService(object):
+class BluehengeService:
     """Bluehenge is designed to help with maintainance and repair tasks.
     When paired with other cobalt offerings, it can provide a hands-free virtual assistant for technicians.
 

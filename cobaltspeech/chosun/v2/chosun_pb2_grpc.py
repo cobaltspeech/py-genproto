@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.chosun.v2 import chosun_pb2 as cobaltspeech_dot_chosun_dot_v2_dot_chosun__pb2
 
 
-class ChosunServiceStub(object):
+class ChosunServiceStub:
     """Service that implements the Cobalt Natural Language Understanding API.
     """
 
@@ -32,7 +32,7 @@ class ChosunServiceStub(object):
                 _registered_method=True)
 
 
-class ChosunServiceServicer(object):
+class ChosunServiceServicer:
     """Service that implements the Cobalt Natural Language Understanding API.
     """
 
@@ -84,7 +84,7 @@ def add_ChosunServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ChosunService(object):
+class ChosunService:
     """Service that implements the Cobalt Natural Language Understanding API.
     """
 

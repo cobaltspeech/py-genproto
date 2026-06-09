@@ -5,7 +5,7 @@ import grpc
 from cobaltspeech.interact.v3 import interact_pb2 as cobaltspeech_dot_interact_dot_v3_dot_interact__pb2
 
 
-class InteractServiceStub(object):
+class InteractServiceStub:
     """Service that implements the Cobalt Interact Voice User Interface API.
     """
 
@@ -62,7 +62,7 @@ class InteractServiceStub(object):
                 _registered_method=True)
 
 
-class InteractServiceServicer(object):
+class InteractServiceServicer:
     """Service that implements the Cobalt Interact Voice User Interface API.
     """
 
@@ -225,7 +225,7 @@ def add_InteractServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class InteractService(object):
+class InteractService:
     """Service that implements the Cobalt Interact Voice User Interface API.
     """
 
