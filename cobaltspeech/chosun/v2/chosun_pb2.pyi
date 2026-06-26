@@ -54,7 +54,7 @@ class ModelInfo(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
 
 class ParseRequest(_message.Message):
-    __slots__ = ("model_id", "domain", "text", "nbest", "cnet", "nbest_tokens", "context_features", "intent_whitelist")
+    __slots__ = ("model_id", "domain", "text", "nbest", "cnet", "nbest_tokens", "context_features", "intent_whitelist", "expected_entities")
     class ContextFeaturesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -70,6 +70,7 @@ class ParseRequest(_message.Message):
     NBEST_TOKENS_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FEATURES_FIELD_NUMBER: _ClassVar[int]
     INTENT_WHITELIST_FIELD_NUMBER: _ClassVar[int]
+    EXPECTED_ENTITIES_FIELD_NUMBER: _ClassVar[int]
     model_id: str
     domain: str
     text: str
@@ -78,7 +79,8 @@ class ParseRequest(_message.Message):
     nbest_tokens: NBestTokens
     context_features: _containers.ScalarMap[str, float]
     intent_whitelist: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, model_id: _Optional[str] = ..., domain: _Optional[str] = ..., text: _Optional[str] = ..., nbest: _Optional[_Union[NBest, _Mapping]] = ..., cnet: _Optional[_Union[CNet, _Mapping]] = ..., nbest_tokens: _Optional[_Union[NBestTokens, _Mapping]] = ..., context_features: _Optional[_Mapping[str, float]] = ..., intent_whitelist: _Optional[_Iterable[str]] = ...) -> None: ...
+    expected_entities: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, model_id: _Optional[str] = ..., domain: _Optional[str] = ..., text: _Optional[str] = ..., nbest: _Optional[_Union[NBest, _Mapping]] = ..., cnet: _Optional[_Union[CNet, _Mapping]] = ..., nbest_tokens: _Optional[_Union[NBestTokens, _Mapping]] = ..., context_features: _Optional[_Mapping[str, float]] = ..., intent_whitelist: _Optional[_Iterable[str]] = ..., expected_entities: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class NBest(_message.Message):
     __slots__ = ("hypotheses",)
