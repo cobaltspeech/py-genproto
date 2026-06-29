@@ -321,10 +321,16 @@ class ASRResult(_message.Message):
     def __init__(self, text: _Optional[str] = ..., confidence: _Optional[float] = ..., timed_out: _Optional[bool] = ..., cubic_result: _Optional[_Union[_cubic_pb2.RecognitionResult, _Mapping]] = ...) -> None: ...
 
 class WakewordResult(_message.Message):
-    __slots__ = ("timestamp_ms",)
+    __slots__ = ("timestamp_ms", "confidence", "is_accepted", "metadata")
     TIMESTAMP_MS_FIELD_NUMBER: _ClassVar[int]
+    CONFIDENCE_FIELD_NUMBER: _ClassVar[int]
+    IS_ACCEPTED_FIELD_NUMBER: _ClassVar[int]
+    METADATA_FIELD_NUMBER: _ClassVar[int]
     timestamp_ms: int
-    def __init__(self, timestamp_ms: _Optional[int] = ...) -> None: ...
+    confidence: float
+    is_accepted: bool
+    metadata: str
+    def __init__(self, timestamp_ms: _Optional[int] = ..., confidence: _Optional[float] = ..., is_accepted: _Optional[bool] = ..., metadata: _Optional[str] = ...) -> None: ...
 
 class TranscribeRequest(_message.Message):
     __slots__ = ("action", "audio")
